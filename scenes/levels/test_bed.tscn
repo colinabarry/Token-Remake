@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm2m54sow7nlk"]
+
+[ext_resource type="PackedScene" uid="uid://dejh1vqu3reuo" path="res://scenes/actors/characters/player/player.tscn" id="1_te8gm"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_oe2gj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0plv"]
+size = Vector2(0.994406, 0.959999)
+
+[node name="TestBed" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(266, 246)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+scale = Vector2(481, 21.125)
+mesh = SubResource("QuadMesh_oe2gj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(481, 21.125)
+shape = SubResource("RectangleShape2D_y0plv")
+
+[node name="Player" parent="." instance=ExtResource("1_te8gm")]
+position = Vector2(232, 138)

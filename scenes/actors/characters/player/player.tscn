@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://dejh1vqu3reuo"]
+
+[ext_resource type="Script" path="res://scenes/actors/components/state_machine/state_machine.gd" id="1_8xt1l"]
+[ext_resource type="Script" path="res://scenes/actors/characters/player/player.gd" id="1_cgsb8"]
+[ext_resource type="Script" path="res://scenes/actors/components/state_machine/idle_state.gd" id="3_asslb"]
+[ext_resource type="Script" path="res://scenes/actors/components/state_machine/walk_state.gd" id="4_yvqed"]
+[ext_resource type="Script" path="res://scenes/actors/components/state_machine/fall_state.gd" id="5_kfe11"]
+[ext_resource type="Script" path="res://scenes/actors/components/state_machine/jump_state.gd" id="6_erjw4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcp50"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_w37jk"]
+radius = 10.0
+height = 30.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_cgsb8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lcp50")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("CapsuleMesh_w37jk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_8xt1l")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_asslb")
+
+[node name="Walk" type="Node" parent="StateMachine"]
+script = ExtResource("4_yvqed")
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("5_kfe11")
+
+[node name="Jump" type="Node" parent="StateMachine"]
+script = ExtResource("6_erjw4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
