@@ -35,8 +35,8 @@ func init(player: Player) -> void:
 		{
 			States.IDLE_STATE: stopped_walking_on_ground,
 			States.JUMP_STATE: jumped,
-			States.FALL_STATE: stopped_touching_ground,
 			States.FALL_STATE: stopped_walking_in_air,
+			States.FALL_STATE: stopped_touching_ground,  # FIXME: you can't seem to define a second transition like this
 		}
 	)
 	_register_state(
@@ -82,20 +82,31 @@ func process(_delta: float) -> void:
 	_emit_process_signals()
 
 
-func try_state_change(new_state: BaseState) -> void:
-	if not new_state is NullState:
+func try_state_change(state_name: String, new_state: BaseState) -> void:
+	if current_state.resource_name == state_name:
 		change_state(new_state)
+
+	# if not new_state is NullState:
+	# 	change_state(new_state)
 
 
 func _register_state(new_state: BaseState, transitions: Dictionary) -> bool:
+	# guard against duplicate state
 	if states.has(new_state):
 		return false
 
+	# give the state a reference to the player as well as the state machine
 	new_state.player = player
 	new_state.state_machine = self
 
+	# register all state transitions
+	# each transition will cause the state to emit [transition_started(state_name, new_state)]
+	# [state_name] is the sending state's resource_name
 	for transition_key in transitions.keys() as Array[BaseState]:
 		new_state.register_transition(transition_key, transitions[transition_key] as Signal)
+
+	# connect the state's transition_started signal to try_state_change
+	new_state.transition_started.connect(try_state_change)
 
 	# new_state.register_transition(try_state_change)
 	states.append(new_state)
