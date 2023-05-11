@@ -30,6 +30,12 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	state_machine.process(delta)
 
+	# TODO: this is gonna make wall hang/jump act a little different if left
+	# some ideas:
+	# wallhang/other state makes gravity = 0
+	# those states just do the opposite of this (wouldn't that cause issues?)
+	# use inheritance (GravityState -> BaseState)
+	# hmmm
 	velocity.x = input_dir * walk_speed
 	velocity.y += gravity
 
