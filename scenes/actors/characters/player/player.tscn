@@ -1,11 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dejh1vqu3reuo"]
+[gd_scene load_steps=6 format=3 uid="uid://b874xebdbapxk"]
 
-[ext_resource type="Script" path="res://scenes/actors/components/state_machine/state_machine.gd" id="1_8xt1l"]
 [ext_resource type="Script" path="res://scenes/actors/characters/player/player.gd" id="1_cgsb8"]
-[ext_resource type="Script" path="res://scenes/actors/components/state_machine/idle_state.gd" id="3_asslb"]
-[ext_resource type="Script" path="res://scenes/actors/components/state_machine/walk_state.gd" id="4_yvqed"]
-[ext_resource type="Script" path="res://scenes/actors/components/state_machine/fall_state.gd" id="5_kfe11"]
-[ext_resource type="Script" path="res://scenes/actors/components/state_machine/jump_state.gd" id="6_erjw4"]
+[ext_resource type="Script" path="res://scenes/components/state_machine/state_machine.gd" id="3_c0nlg"]
 [ext_resource type="Script" path="res://scenes/actors/characters/player/coin_purse.gd" id="7_shcpk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcp50"]
@@ -31,18 +27,6 @@ position_smoothing_speed = 10.0
 script = ExtResource("7_shcpk")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("1_8xt1l")
-
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("3_asslb")
-
-[node name="Walk" type="Node" parent="StateMachine"]
-script = ExtResource("4_yvqed")
-
-[node name="Fall" type="Node" parent="StateMachine"]
-script = ExtResource("5_kfe11")
-
-[node name="Jump" type="Node" parent="StateMachine"]
-script = ExtResource("6_erjw4")
+script = ExtResource("3_c0nlg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

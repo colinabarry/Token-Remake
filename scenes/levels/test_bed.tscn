@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dm2m54sow7nlk"]
 
-[ext_resource type="PackedScene" uid="uid://dejh1vqu3reuo" path="res://scenes/actors/characters/player/player.tscn" id="1_te8gm"]
+[ext_resource type="PackedScene" uid="uid://b874xebdbapxk" path="res://scenes/actors/characters/player/player.tscn" id="1_te8gm"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_oe2gj"]
 

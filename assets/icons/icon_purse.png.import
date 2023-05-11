@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cb6gyi078723e"
-path="res://.godot/imported/icon_state_crisp.png-2ce3a764a47fe025dc5a6334240fec50.ctex"
+uid="uid://b2cwivba1hsbk"
+path="res://.godot/imported/icon_purse.png-621795e163772cbecd5000a688cf2bc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/icon_state_crisp.png"
-dest_files=["res://.godot/imported/icon_state_crisp.png-2ce3a764a47fe025dc5a6334240fec50.ctex"]
+source_file="res://assets/icons/icon_purse.png"
+dest_files=["res://.godot/imported/icon_purse.png-621795e163772cbecd5000a688cf2bc4.ctex"]
 
 [params]
 
