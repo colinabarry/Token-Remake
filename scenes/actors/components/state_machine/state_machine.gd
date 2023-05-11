@@ -1,3 +1,4 @@
+@icon("res://assets/icons/icon_state_machine_crisp.png")
 class_name StateMachine extends Node
 
 var current_state: BaseState

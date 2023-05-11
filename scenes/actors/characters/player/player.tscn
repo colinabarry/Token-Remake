@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dejh1vqu3reuo"]
+[gd_scene load_steps=10 format=3 uid="uid://dejh1vqu3reuo"]
 
 [ext_resource type="Script" path="res://scenes/actors/components/state_machine/state_machine.gd" id="1_8xt1l"]
 [ext_resource type="Script" path="res://scenes/actors/characters/player/player.gd" id="1_cgsb8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/actors/components/state_machine/walk_state.gd" id="4_yvqed"]
 [ext_resource type="Script" path="res://scenes/actors/components/state_machine/fall_state.gd" id="5_kfe11"]
 [ext_resource type="Script" path="res://scenes/actors/components/state_machine/jump_state.gd" id="6_erjw4"]
+[ext_resource type="Script" path="res://scenes/actors/characters/player/coin_purse.gd" id="7_shcpk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcp50"]
 
@@ -25,6 +26,9 @@ mesh = SubResource("CapsuleMesh_w37jk")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
+
+[node name="CoinPurse" type="Node" parent="."]
+script = ExtResource("7_shcpk")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("1_8xt1l")

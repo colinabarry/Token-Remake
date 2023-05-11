@@ -1,3 +1,4 @@
+@icon("res://assets/icons/icon_state_crisp.png")
 class_name BaseState extends Node
 
 enum State {
