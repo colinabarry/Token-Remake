@@ -19,8 +19,8 @@ var current_state: BaseState
 
 
 ## Gives each state a reference to the player and initializes [current_state] to IDLE
-func init(player: Player) -> void:
-	self.player = player
+func init(_player: Player) -> void:
+	self.player = _player
 
 	_register_state(
 		States.IDLE_STATE,
@@ -84,7 +84,7 @@ func process(_delta: float) -> void:
 
 func try_state_change(state_name: String, new_state: BaseState) -> void:
 	if current_state.resource_name == state_name:
-		change_state(new_state)
+		change_state(new_state)  # TODO: make sure state transition is valid
 
 	# if not new_state is NullState:
 	# 	change_state(new_state)
@@ -122,7 +122,7 @@ func _emit_input_signals() -> void:
 		else:
 			stopped_walking_in_air.emit()
 	if Input.is_action_just_pressed("move_jump"):
-		jumped.emit()
+		_try_emit_jumped_signal()
 
 
 func _emit_process_signals() -> void:
@@ -137,3 +137,11 @@ func _emit_process_signals() -> void:
 			started_touching_ground_moving.emit()
 	if current_state is JumpState and player.velocity.y >= 0:
 		started_falling.emit()
+
+
+func _try_emit_jumped_signal() -> bool:
+	if not player.can_jump():
+		return false
+
+	jumped.emit()
+	return true

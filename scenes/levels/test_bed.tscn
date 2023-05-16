@@ -22,4 +22,4 @@ scale = Vector2(481, 21.125)
 shape = SubResource("RectangleShape2D_y0plv")
 
 [node name="Player" parent="." instance=ExtResource("1_te8gm")]
-position = Vector2(232, 138)
+position = Vector2(267, 150)

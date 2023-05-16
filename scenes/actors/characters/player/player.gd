@@ -7,16 +7,16 @@ var default_jump_tokens := 5
 
 # state machine variables
 var is_on_ground := false
-var num_jumps := 0
-var num_jump_tokens := default_jump_tokens
 var input_dir := 0.0
 
 @onready var state_machine := $StateMachine as StateMachine
+@onready var coin_purse := $CoinPurse as CoinPurse
 @onready var anim_player := $AnimationPlayer as AnimationPlayer
 
 
 func _ready() -> void:
 	state_machine.init(self)
+	coin_purse.init(self)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -40,3 +40,23 @@ func _process(delta: float) -> void:
 	velocity.y += gravity
 
 	move_and_slide()
+
+
+func connect_signal_to_callback(signal_name: StringName, callback: Callable) -> bool:
+	if state_machine.is_connected(signal_name, callback):
+		return false
+
+	state_machine.connect(signal_name, callback)
+	return true
+
+
+# func connect_jump_to_purse(callback: Callable) -> bool:
+# 	if state_machine.jumped.is_connected(callback):
+# 		return false
+
+# 	state_machine.jumped.connect(callback)
+# 	return true
+
+
+func can_jump() -> bool:
+	return coin_purse.num_jump_tokens > 0
