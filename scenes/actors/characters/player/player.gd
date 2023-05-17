@@ -15,6 +15,8 @@ var input_dir := 0.0
 
 
 func _ready() -> void:
+	add_to_group("player")
+
 	state_machine.init(self)
 	coin_purse.init(self)
 

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://7ixawum8nyfi"]
+
+[ext_resource type="Script" path="res://scenes/actors/tokens/base_token/base_token.gd" id="1_vhyq8"]
+
+[node name="BaseToken" type="Area2D"]
+script = ExtResource("1_vhyq8")

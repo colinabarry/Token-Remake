@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b874xebdbapxk"]
+[gd_scene load_steps=7 format=3 uid="uid://b874xebdbapxk"]
 
 [ext_resource type="Script" path="res://scenes/actors/characters/player/player.gd" id="1_cgsb8"]
 [ext_resource type="Script" path="res://scenes/components/state_machine/state_machine.gd" id="3_c0nlg"]
@@ -10,10 +10,13 @@
 radius = 10.0
 height = 30.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wh11t"]
+radius = 15.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cgsb8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="PlayerCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_lcp50")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
@@ -23,8 +26,11 @@ mesh = SubResource("CapsuleMesh_w37jk")
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="CoinPurse" type="Node" parent="."]
+[node name="CoinPurse" type="Area2D" parent="."]
 script = ExtResource("7_shcpk")
+
+[node name="TokenCollision" type="CollisionShape2D" parent="CoinPurse"]
+shape = SubResource("CircleShape2D_wh11t")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_c0nlg")
