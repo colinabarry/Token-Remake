@@ -122,7 +122,7 @@ func _emit_input_signals() -> void:
 		else:
 			stopped_walking_in_air.emit()
 	if Input.is_action_just_pressed("move_jump"):
-		_try_emit_jumped_signal()
+		_try_emit_signal(States.JUMP_STATE, jumped)
 
 
 func _emit_process_signals() -> void:
@@ -139,9 +139,20 @@ func _emit_process_signals() -> void:
 		started_falling.emit()
 
 
-func _try_emit_jumped_signal() -> bool:
-	if not player.can_jump():
+func _try_emit_signal(new_state: BaseState, signal_to_emit: Signal) -> bool:
+	if not current_state.possible_next_states.has(new_state):
+		return false
+	if not player.can_transition_to(new_state):
 		return false
 
-	jumped.emit()
+	signal_to_emit.emit()
 	return true
+
+# func _try_emit_jumped_signal() -> bool:
+# 	if not player.can_jump():
+# 		return false
+# 	if not current_state.possible_next_states.has(States.JUMP_STATE):
+# 		return false
+
+# 	jumped.emit()
+# 	return true

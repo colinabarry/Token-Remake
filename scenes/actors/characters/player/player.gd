@@ -58,5 +58,12 @@ func connect_signal_to_callback(signal_name: StringName, callback: Callable) -> 
 # 	return true
 
 
-func can_jump() -> bool:
-	return coin_purse.num_jump_tokens > 0
+func can_transition_to(new_state: BaseState) -> bool:
+	match new_state:
+		States.JUMP_STATE:
+			return coin_purse.num_jump_tokens > 0
+
+	return false
+
+# func can_jump() -> bool:
+# 	return coin_purse.num_jump_tokens > 0
