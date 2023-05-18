@@ -67,5 +67,9 @@ func can_transition_to(new_state: BaseState) -> bool:
 
 	return false
 
+
+func die() -> void:
+	get_tree().change_scene_to_file("scenes/levels/test_bed.tscn")
+
 # func can_jump() -> bool:
 # 	return coin_purse.num_jump_tokens > 0
