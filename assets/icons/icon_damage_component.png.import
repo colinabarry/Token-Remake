@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh7c1fh2nathc"
-path="res://.godot/imported/icon_state_machine.png-9cc4a8791f7e7281baac1f5a6c8b3a56.ctex"
+uid="uid://cswj5u8xm215o"
+path="res://.godot/imported/icon_damage_component.png-7db55acb212f2c496972461c83b09101.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/icon_state_machine.png"
-dest_files=["res://.godot/imported/icon_state_machine.png-9cc4a8791f7e7281baac1f5a6c8b3a56.ctex"]
+source_file="res://assets/icons/icon_damage_component.png"
+dest_files=["res://.godot/imported/icon_damage_component.png-7db55acb212f2c496972461c83b09101.ctex"]
 
 [params]
 
