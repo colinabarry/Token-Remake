@@ -27,6 +27,14 @@ window/size/window_width_override=1599
 window/size/window_height_override=900
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray()
+
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_left={
