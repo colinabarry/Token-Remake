@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b874xebdbapxk"]
+[gd_scene load_steps=9 format=3 uid="uid://b874xebdbapxk"]
 
 [ext_resource type="Script" path="res://scenes/actors/characters/player/player.gd" id="1_cgsb8"]
 [ext_resource type="Script" path="res://scenes/components/state_machine/state_machine.gd" id="3_c0nlg"]
+[ext_resource type="PackedScene" uid="uid://dlx60mkkcop6w" path="res://scenes/components/health_component/health_component.tscn" id="4_3151j"]
 [ext_resource type="Script" path="res://scenes/actors/characters/player/coin_purse.gd" id="7_shcpk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcp50"]
@@ -13,26 +14,34 @@ height = 30.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_wh11t"]
 radius = 15.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xoshs"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cgsb8")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_lcp50")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 mesh = SubResource("CapsuleMesh_w37jk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 
 [node name="CoinPurse" type="Area2D" parent="."]
 script = ExtResource("7_shcpk")
 
 [node name="TokenCollision" type="CollisionShape2D" parent="CoinPurse"]
 shape = SubResource("CircleShape2D_wh11t")
+debug_color = Color(0.698039, 0.494118, 0, 0.419608)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_c0nlg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_3151j")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
+shape = SubResource("CircleShape2D_xoshs")
+debug_color = Color(0, 0.615686, 0, 0.419608)
