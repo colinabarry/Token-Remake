@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbnautmoemh7o"]
+
+[ext_resource type="Texture2D" uid="uid://cswj5u8xm215o" path="res://assets/icons/icon_damage_component.png" id="1_e43eg"]
+[ext_resource type="PackedScene" uid="uid://bsfi6t5hy01dm" path="res://scenes/components/damage_component/damage_component.tscn" id="2_57v5i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fx8dn"]
+radius = 1.0
+height = 8.0
+
+[node name="Spike" type="Sprite2D"]
+modulate = Color(1, 0, 0, 1)
+texture_filter = 1
+texture = ExtResource("1_e43eg")
+
+[node name="DamageComponent" parent="." instance=ExtResource("2_57v5i")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent"]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_fx8dn")
