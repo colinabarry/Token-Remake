@@ -182,6 +182,6 @@ shape = SubResource("CircleShape2D_xoshs")
 debug_color = Color(0, 0.615686, 0, 0.215686)
 
 [node name="CoyoteCast" type="RayCast2D" parent="."]
-position = Vector2(-14, 9)
+position = Vector2(-14, 8.5)
 target_position = Vector2(28, 0)
 hit_from_inside = true
