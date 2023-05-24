@@ -12,8 +12,6 @@ var input_dir := 0.0
 @onready var state_machine := $StateMachine as StateMachine
 @onready var coin_purse := $CoinPurse as CoinPurse
 @onready var anim_player := $AnimationPlayer as AnimationPlayer
-@onready var camera := $Camera as Camera2D
-@onready var crt := $CRT as ColorRect
 
 
 func _ready() -> void:
@@ -44,8 +42,6 @@ func _process(delta: float) -> void:
 	velocity.y += gravity
 
 	move_and_slide()
-	# camera.position = position
-	# crt.position = position
 
 
 func connect_signal_to_callback(signal_name: StringName, callback: Callable) -> bool:
@@ -54,14 +50,6 @@ func connect_signal_to_callback(signal_name: StringName, callback: Callable) -> 
 
 	state_machine.connect(signal_name, callback)
 	return true
-
-
-# func connect_jump_to_purse(callback: Callable) -> bool:
-# 	if state_machine.jumped.is_connected(callback):
-# 		return false
-
-# 	state_machine.jumped.connect(callback)
-# 	return true
 
 
 func can_transition_to(new_state: BaseState) -> bool:
@@ -74,6 +62,3 @@ func can_transition_to(new_state: BaseState) -> bool:
 
 func die() -> void:
 	get_tree().change_scene_to_file("scenes/levels/test_bed.tscn")
-
-# func can_jump() -> bool:
-# 	return coin_purse.num_jump_tokens > 0

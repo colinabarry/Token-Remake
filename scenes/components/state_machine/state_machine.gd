@@ -14,7 +14,6 @@ signal started_touching_ground_unmoving
 
 var current_state: BaseState
 
-# @onready var states := get_children() as Array[BaseState]
 @onready var player: Player
 
 
@@ -86,9 +85,6 @@ func try_state_change(state_name: String, new_state: BaseState) -> void:
 	if current_state.resource_name == state_name:
 		change_state(new_state)  # TODO: make sure state transition is valid
 
-	# if not new_state is NullState:
-	# 	change_state(new_state)
-
 
 func _register_state(new_state: BaseState, transitions: Dictionary) -> bool:
 	# guard against duplicate state
@@ -147,12 +143,3 @@ func _try_emit_signal(new_state: BaseState, signal_to_emit: Signal) -> bool:
 
 	signal_to_emit.emit()
 	return true
-
-# func _try_emit_jumped_signal() -> bool:
-# 	if not player.can_jump():
-# 		return false
-# 	if not current_state.possible_next_states.has(States.JUMP_STATE):
-# 		return false
-
-# 	jumped.emit()
-# 	return true
