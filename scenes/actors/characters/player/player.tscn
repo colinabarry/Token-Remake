@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b874xebdbapxk"]
+[gd_scene load_steps=10 format=3 uid="uid://b874xebdbapxk"]
 
 [ext_resource type="Script" path="res://scenes/actors/characters/player/player.gd" id="1_cgsb8"]
 [ext_resource type="Script" path="res://scenes/components/state_machine/state_machine.gd" id="3_c0nlg"]
 [ext_resource type="PackedScene" uid="uid://dlx60mkkcop6w" path="res://scenes/components/health_component/health_component.tscn" id="4_3151j"]
+[ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="5_iwkll"]
 [ext_resource type="Script" path="res://scenes/actors/characters/player/coin_purse.gd" id="7_shcpk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcp50"]
@@ -20,13 +21,13 @@ radius = 15.0
 script = ExtResource("1_cgsb8")
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_lcp50")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
 mesh = SubResource("CapsuleMesh_w37jk")
 
 [node name="CoinPurse" type="Area2D" parent="."]
@@ -46,3 +47,10 @@ script = ExtResource("3_c0nlg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
 shape = SubResource("CircleShape2D_xoshs")
 debug_color = Color(0, 0.615686, 0, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("5_iwkll")
+hframes = 7
+region_enabled = true
+region_rect = Rect2(0, 192, 112, 16)
