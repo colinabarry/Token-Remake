@@ -26,7 +26,7 @@ func _collect_token(token: BaseToken) -> void:
 
 func _on_player_jumped() -> void:
 	num_jump_tokens -= 1
-	print(num_jump_tokens, " tokens left")
+	# print_debug(num_jump_tokens, " tokens left")
 
 
 func _on_area_entered(area: Area2D) -> void:
