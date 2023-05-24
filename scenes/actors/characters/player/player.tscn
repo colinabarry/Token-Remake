@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b874xebdbapxk"]
+[gd_scene load_steps=16 format=3 uid="uid://b874xebdbapxk"]
 
 [ext_resource type="Script" path="res://scenes/actors/characters/player/player.gd" id="1_cgsb8"]
 [ext_resource type="Script" path="res://scenes/components/state_machine/state_machine.gd" id="3_c0nlg"]
@@ -7,24 +7,151 @@
 [ext_resource type="Script" path="res://scenes/actors/characters/player/coin_purse.gd" id="7_shcpk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcp50"]
+radius = 4.0
+height = 10.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_w37jk"]
 radius = 10.0
 height = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wh11t"]
-radius = 15.0
+
+[sub_resource type="Animation" id="Animation_rxerw"]
+resource_name = "FallState"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOrigin/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="Animation_a3c37"]
+resource_name = "IdleState"
+length = 10.0
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOrigin/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1, 1.3, 1.7, 2, 2.3, 2.7, 3, 3.3, 3.7, 4, 4.3, 4.7, 5, 5.3, 5.7, 6, 6.3, 6.7, 7, 7.3, 7.7, 8, 8.3, 8.7, 9, 9.3, 9.7, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1), Vector2(1.05, 0.95), Vector2(0.95, 1.05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteOrigin/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_ngrb2"]
+resource_name = "JumpState"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOrigin/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_wd54a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOrigin/Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteOrigin/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wssoe"]
+resource_name = "WalkState"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteOrigin/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o7ndv"]
+_data = {
+"FallState": SubResource("Animation_rxerw"),
+"IdleState": SubResource("Animation_a3c37"),
+"JumpState": SubResource("Animation_ngrb2"),
+"RESET": SubResource("Animation_wd54a"),
+"WalkState": SubResource("Animation_wssoe")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xoshs"]
+radius = 4.12311
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cgsb8")
 
+[node name="SpriteOrigin" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="SpriteOrigin"]
+texture_filter = 3
+texture = ExtResource("5_iwkll")
+hframes = 7
+region_enabled = true
+region_rect = Rect2(0, 192, 112, 16)
+
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_lcp50")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+debug_color = Color(0, 0.6, 0.701961, 0.215686)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 visible = false
@@ -34,23 +161,27 @@ mesh = SubResource("CapsuleMesh_w37jk")
 script = ExtResource("7_shcpk")
 
 [node name="TokenCollision" type="CollisionShape2D" parent="CoinPurse"]
+position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_wh11t")
-debug_color = Color(0.698039, 0.494118, 0, 0.419608)
+debug_color = Color(0.698039, 0.494118, 0, 0.215686)
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_c0nlg")
+states = Array[Object]([])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o7ndv")
+}
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_3151j")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
+position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_xoshs")
-debug_color = Color(0, 0.615686, 0, 0.419608)
+debug_color = Color(0, 0.615686, 0, 0.215686)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 3
-texture = ExtResource("5_iwkll")
-hframes = 7
-region_enabled = true
-region_rect = Rect2(0, 192, 112, 16)
+[node name="CoyoteCast" type="RayCast2D" parent="."]
+position = Vector2(-14, 9)
+target_position = Vector2(28, 0)
+hit_from_inside = true

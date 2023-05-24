@@ -1,7 +1,8 @@
 class_name Player extends CharacterBody2D
 
-@export var walk_speed := 100
-@export var jump_velocity := 250
+@export var max_walk_speed := 150.0
+@export var walk_acceleration := 10.0
+@export var jump_velocity := 250.0
 @export var gravity := 9.8
 @export var default_jump_tokens := 50000
 
@@ -12,6 +13,9 @@ var input_dir := 0.0
 @onready var state_machine := $StateMachine as StateMachine
 @onready var coin_purse := $CoinPurse as CoinPurse
 @onready var anim_player := $AnimationPlayer as AnimationPlayer
+
+@onready var sprite_origin := $SpriteOrigin as Node2D
+@onready var coyote_cast := $CoyoteCast as RayCast2D
 
 
 func _ready() -> void:
@@ -38,8 +42,8 @@ func _process(delta: float) -> void:
 	# those states just do the opposite of this (wouldn't that cause issues?)
 	# use inheritance (GravityState -> BaseState)
 	# hmmm
-	velocity.x = input_dir * walk_speed
-	velocity.y += gravity
+	# velocity.x = input_dir * walk_speed
+	# velocity.y += gravity
 
 	move_and_slide()
 
@@ -58,6 +62,27 @@ func can_transition_to(new_state: BaseState) -> bool:
 			return coin_purse.num_jump_tokens > 0
 
 	return false
+
+
+func on_ground() -> bool:
+	return is_on_floor() or coyote_cast.is_colliding()
+
+
+func move(move_acceleration := walk_acceleration) -> void:
+	if input_dir != 0:
+		velocity.x = clamp(
+			velocity.x + (input_dir * move_acceleration), -max_walk_speed, max_walk_speed
+		)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, 0.5)
+
+	print_debug(input_dir)
+	if input_dir != 0:
+		sprite_origin.scale.x = signf(input_dir)
+
+
+func fall(fall_acceleration := gravity) -> void:
+	velocity.y += fall_acceleration
 
 
 func die() -> void:

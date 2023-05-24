@@ -6,4 +6,10 @@ func _init() -> void:
 
 
 func enter() -> void:
-	player.velocity.x = 0
+	super()
+	# player.velocity.x = 0
+
+
+func process(_delta: float) -> void:
+	player.fall()
+	player.move()

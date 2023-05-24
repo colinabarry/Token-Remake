@@ -58,7 +58,7 @@ func init(_player: Player) -> void:
 ## Exits the current state, sets and enters the new state
 func change_state(new_state: BaseState) -> void:
 	if current_state:
-		# print_debug(current_state.resource_name, " -> ", new_state.resource_name)
+		print_debug(current_state.resource_name, " -> ", new_state.resource_name)
 		current_state.exit()
 
 	current_state = new_state
@@ -77,7 +77,8 @@ func physics_process(_delta: float) -> void:
 	pass
 
 
-func process(_delta: float) -> void:
+func process(delta: float) -> void:
+	current_state.process(delta)
 	_emit_process_signals()
 
 
@@ -122,7 +123,7 @@ func _emit_input_signals() -> void:
 
 
 func _emit_process_signals() -> void:
-	if player.is_on_ground and not player.is_on_floor():
+	if player.is_on_ground and not player.on_ground():
 		player.is_on_ground = false  # TODO: move this into player, listen for signal?
 		stopped_touching_ground.emit()
 	if not player.is_on_ground and player.is_on_floor():

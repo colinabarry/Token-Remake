@@ -8,3 +8,8 @@ func _init() -> void:
 func enter() -> void:
 	super()
 	player.velocity.y -= player.jump_velocity
+
+
+func process(_delta: float) -> void:
+	player.move()
+	player.fall()
