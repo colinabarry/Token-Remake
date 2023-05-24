@@ -10,7 +10,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_te8gm")]
 position = Vector2(267, 150)
-jump_velocity = 500
 
 [node name="JumpToken" parent="." instance=ExtResource("2_mtn5b")]
 position = Vector2(398, 220)
