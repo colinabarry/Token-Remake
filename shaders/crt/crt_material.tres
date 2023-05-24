@@ -1,18 +1,27 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cxikx2mqwvvsy"]
 
-[ext_resource type="Shader" path="res://shaders/crt/crt_simple.gdshader" id="1_llfcc"]
+[ext_resource type="Shader" path="res://shaders/crt/crt.gdshader" id="1_su263"]
 
 [resource]
-shader = ExtResource("1_llfcc")
-shader_parameter/scan_line_count = 360.0
-shader_parameter/scan_line_mix = 0.5
-shader_parameter/r_offset = 0.0
-shader_parameter/g_offset = 0.5
-shader_parameter/b_offset = 0.5
-shader_parameter/uv_curve_sub = 0.6
-shader_parameter/uv_curve_mult = 2.0
-shader_parameter/uv_curve_x_div = 3.5
-shader_parameter/uv_curve_x_pow = 2.0
-shader_parameter/uv_curve_y_div = 3.0
-shader_parameter/uv_curve_y_pow = 2.0
-shader_parameter/uv_curve_div = 2.35
+shader = ExtResource("1_su263")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.0
+shader_parameter/grille_opacity = 0.132
+shader_parameter/resolution = Vector2(533, 300)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 0.5
+shader_parameter/roll_size = 2.466
+shader_parameter/roll_variation = 2.939
+shader_parameter/distort_intensity = 0.005
+shader_parameter/noise_opacity = 0.065
+shader_parameter/noise_speed = 2.444
+shader_parameter/static_noise_intensity = 0.02
+shader_parameter/aberration = 0.00700005
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.169
+shader_parameter/vignette_opacity = 0.196

@@ -21,11 +21,11 @@ States="*res://scripts/autoloads/states.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
-window/size/window_width_override=1280
-window/size/window_height_override=720
-window/stretch/mode="viewport"
+window/size/viewport_width=533
+window/size/viewport_height=300
+window/size/window_width_override=2132
+window/size/window_height_override=1200
+window/stretch/mode="canvas_items"
 
 [filesystem]
 

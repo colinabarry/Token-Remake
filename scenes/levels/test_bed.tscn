@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dnmska57qgk46" path="res://scenes/actors/tokens/jump_token/jump_token.tscn" id="2_mtn5b"]
 [ext_resource type="PackedScene" uid="uid://bbnautmoemh7o" path="res://scenes/actors/spike.tscn" id="3_fs36j"]
 [ext_resource type="TileSet" uid="uid://bkswb2jo3bdrx" path="res://assets/tilesets/level_tileset.tres" id="4_p84ac"]
-[ext_resource type="Material" uid="uid://cxikx2mqwvvsy" path="res://shaders/crt/crt_material.tres" id="5_li82a"]
+[ext_resource type="Material" uid="uid://bvwhh6d4lrqtd" path="res://shaders/crt_simple/crt_simple_material.tres" id="5_ieeqc"]
 
 [node name="TestBed" type="Node2D"]
 
@@ -45,10 +45,9 @@ layer_2/tile_data = PackedInt32Array(917513, 917504, 0, 983049, 917504, 1, 91753
 [node name="CRT" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CRT"]
-clip_children = 2
 z_index = 100
 z_as_relative = false
-material = ExtResource("5_li82a")
+material = ExtResource("5_ieeqc")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
