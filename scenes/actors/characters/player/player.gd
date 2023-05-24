@@ -1,9 +1,9 @@
 class_name Player extends CharacterBody2D
 
-var walk_speed := 100
-var jump_velocity := 250
-var gravity := 9.8
-var default_jump_tokens := 5
+@export var walk_speed := 100
+@export var jump_velocity := 250
+@export var gravity := 9.8
+@export var default_jump_tokens := 50000
 
 # state machine variables
 var is_on_ground := false
@@ -12,6 +12,8 @@ var input_dir := 0.0
 @onready var state_machine := $StateMachine as StateMachine
 @onready var coin_purse := $CoinPurse as CoinPurse
 @onready var anim_player := $AnimationPlayer as AnimationPlayer
+@onready var camera := $Camera as Camera2D
+@onready var crt := $CRT as ColorRect
 
 
 func _ready() -> void:
@@ -42,6 +44,8 @@ func _process(delta: float) -> void:
 	velocity.y += gravity
 
 	move_and_slide()
+	# camera.position = position
+	# crt.position = position
 
 
 func connect_signal_to_callback(signal_name: StringName, callback: Callable) -> bool:
