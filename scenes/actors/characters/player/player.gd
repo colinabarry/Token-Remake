@@ -1,7 +1,7 @@
 class_name Player extends CharacterBody2D
 
 @export var max_walk_speed := 150.0
-@export var walk_acceleration := 10.0
+@export var walk_acceleration := 5.0
 @export var jump_velocity := 250.0
 @export var gravity := 9.8
 @export var default_jump_tokens := 50000
