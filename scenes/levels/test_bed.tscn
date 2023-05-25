@@ -1,12 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm2m54sow7nlk"]
+[gd_scene load_steps=9 format=3 uid="uid://dm2m54sow7nlk"]
 
 [ext_resource type="PackedScene" uid="uid://b874xebdbapxk" path="res://scenes/actors/characters/player/player.tscn" id="1_te8gm"]
 [ext_resource type="PackedScene" uid="uid://dnmska57qgk46" path="res://scenes/actors/tokens/jump_token/jump_token.tscn" id="2_mtn5b"]
 [ext_resource type="PackedScene" uid="uid://bbnautmoemh7o" path="res://scenes/actors/spike.tscn" id="3_fs36j"]
 [ext_resource type="TileSet" uid="uid://bkswb2jo3bdrx" path="res://assets/tilesets/level_tileset.tres" id="4_p84ac"]
 [ext_resource type="Material" uid="uid://bvwhh6d4lrqtd" path="res://shaders/crt_simple/crt_simple_material.tres" id="5_ieeqc"]
+[ext_resource type="Script" path="res://scripts/crt_layer.gd" id="5_r10wn"]
+[ext_resource type="Material" uid="uid://ce10223yltscx" path="res://shaders/blur/blur_material.tres" id="7_lvyt7"]
+
+[sub_resource type="Environment" id="Environment_114ke"]
+background_mode = 3
+tonemap_mode = 3
+glow_intensity = 1.0
+glow_blend_mode = 0
+glow_hdr_threshold = 0.85
+glow_hdr_scale = 0.72
 
 [node name="TestBed" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_114ke")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -100
+z_as_relative = false
+offset_left = -942.0
+offset_top = -770.0
+offset_right = 1385.0
+offset_bottom = 1205.0
+color = Color(0.00392157, 0, 0.337255, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_te8gm")]
 position = Vector2(267, 150)
@@ -18,6 +40,7 @@ position = Vector2(398, 220)
 position = Vector2(449, 219)
 
 [node name="Spike" parent="." instance=ExtResource("3_fs36j")]
+modulate = Color(10, 10, 10, 1)
 position = Vector2(102, 223)
 
 [node name="Ground" type="TileMap" parent="."]
@@ -41,12 +64,28 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = -10
 layer_2/tile_data = PackedInt32Array(917513, 917504, 0, 983049, 917504, 1, 917531, 983040, 0, 983067, 917504, 1, 917539, 917504, 0, 983075, 983040, 1, 917521, 983040, 0, 983057, 983040, 1, 917504, 917504, 0, 983040, 983040, 1)
 
-[node name="CRT" type="CanvasLayer" parent="."]
+[node name="ScreenShaders" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("5_r10wn")
 
-[node name="ColorRect" type="ColorRect" parent="CRT"]
+[node name="CRT" type="ColorRect" parent="ScreenShaders"]
 z_index = 100
 z_as_relative = false
 material = ExtResource("5_ieeqc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenShaders2" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("5_r10wn")
+
+[node name="Blur" type="ColorRect" parent="ScreenShaders2"]
+z_index = 50
+z_as_relative = false
+material = ExtResource("7_lvyt7")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

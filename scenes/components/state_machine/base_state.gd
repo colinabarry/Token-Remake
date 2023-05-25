@@ -11,7 +11,6 @@ var possible_next_states: Array[BaseState]
 
 ## Called by StateMachine on [new_state] when changing states
 func enter() -> void:
-	pass
 	player.anim_player.play(resource_name)
 
 

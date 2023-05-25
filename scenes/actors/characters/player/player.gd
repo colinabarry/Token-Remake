@@ -56,10 +56,16 @@ func connect_signal_to_callback(signal_name: StringName, callback: Callable) -> 
 	return true
 
 
-func can_transition_to(new_state: BaseState) -> bool:
-	match new_state:
+func can_transition_to(
+	to_state: BaseState, from_state: BaseState = state_machine.current_state
+) -> bool:
+	match to_state:
 		States.JUMP_STATE:
 			return coin_purse.num_jump_tokens > 0
+		States.IDLE_STATE:
+			# WALK_STATE should not stay in IDLE_STATE in the case that
+			# one direction is held, the other direction is pressed, then the first is released
+			return not (from_state == States.WALK_STATE and input_dir != 0)
 
 	return false
 
@@ -76,7 +82,6 @@ func move(move_acceleration := walk_acceleration) -> void:
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.5)
 
-	print_debug(input_dir)
 	if input_dir != 0:
 		sprite_origin.scale.x = signf(input_dir)
 
