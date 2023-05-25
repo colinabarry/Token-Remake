@@ -114,10 +114,11 @@ func _emit_input_signals() -> void:
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 		started_walking.emit()
 	if Input.is_action_just_released("move_left") or Input.is_action_just_released("move_right"):
-		if player.is_on_ground:
-			_try_emit_signal(States.IDLE_STATE, stopped_walking_on_ground)
-		else:
-			stopped_walking_in_air.emit()
+		if player.input_dir == 0:
+			if player.is_on_ground:
+				_try_emit_signal(States.IDLE_STATE, stopped_walking_on_ground)
+			else:
+				stopped_walking_in_air.emit()
 	if Input.is_action_just_pressed("move_jump"):
 		_try_emit_signal(States.JUMP_STATE, jumped)
 
