@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dorc8jb0hh23a"]
+
+[ext_resource type="Script" path="res://scenes/components/ground_detector/ground_detector.gd" id="1_nip5r"]
+
+[node name="GroundDetector" type="Area2D"]
+script = ExtResource("1_nip5r")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]

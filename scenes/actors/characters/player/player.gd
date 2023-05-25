@@ -16,6 +16,8 @@ var input_dir := 0.0
 
 @onready var sprite_origin := $SpriteOrigin as Node2D
 @onready var coyote_cast := $CoyoteCast as RayCast2D
+@onready var ground_detector := $GroundDetector as Area2D
+@onready var collision := $PlayerCollision as CollisionShape2D
 
 
 func _ready() -> void:
@@ -26,6 +28,11 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("move_drop"):
+		if ground_detector.standing_on_platform:
+			collision.disabled = true
+			await create_tween().tween_callback(func(): return false).set_delay(0.1).finished
+			collision.disabled = false
 	state_machine.input(event)
 
 
