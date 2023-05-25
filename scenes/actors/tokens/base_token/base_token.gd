@@ -13,6 +13,7 @@ var token_type := TokenType.BASE_TOKEN
 func _ready() -> void:
 	add_to_group("token")
 	area_entered.connect(_on_area_entered)
+	animation_player.play("hover")
 
 
 func _collect() -> void:

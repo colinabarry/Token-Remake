@@ -1,14 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnmska57qgk46"]
+[gd_scene load_steps=7 format=3 uid="uid://dnmska57qgk46"]
 
 [ext_resource type="Script" path="res://scenes/actors/tokens/jump_token/jump_token.gd" id="1_6q45v"]
+[ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="2_grydy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xuuw5"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_mwpfh"]
 radius = 5.0
-height = 10.0
-radial_segments = 4
-rings = 8
+
+[sub_resource type="Animation" id="Animation_nhyu8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_myt8v"]
+resource_name = "hover"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1), Vector2(0, -1), Vector2(0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wv4np"]
+_data = {
+"RESET": SubResource("Animation_nhyu8"),
+"hover": SubResource("Animation_myt8v")
+}
 
 [node name="JumpToken" type="Area2D"]
 script = ExtResource("1_6q45v")
@@ -17,7 +51,13 @@ script = ExtResource("1_6q45v")
 shape = SubResource("CircleShape2D_xuuw5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wv4np")
+}
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color(1, 1, 0, 1)
-mesh = SubResource("SphereMesh_mwpfh")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.407843, 1)
+texture_filter = 3
+texture = ExtResource("2_grydy")
+region_enabled = true
+region_rect = Rect2(16, 0, 16, 16)
