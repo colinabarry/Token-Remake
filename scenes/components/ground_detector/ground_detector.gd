@@ -17,7 +17,7 @@ func _on_body_shape_entered(
 
 		if current_tile_data:
 			standing_on_platform = current_tile_data.get_custom_data_by_layer_id(0)
-	print(standing_on_platform)
+	# print_debug(standing_on_platform)
 
 
 func _on_body_shape_exited(
