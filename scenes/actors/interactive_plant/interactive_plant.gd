@@ -19,6 +19,7 @@ enum Sprite {
 	TREE_TRUNK_3
 }
 
+## If you set this to Sprite.ROCKS, it will be randomized my dude
 @export var sprite_index := Sprite.ROCKS:
 	set(val):
 		sprite_index = val
