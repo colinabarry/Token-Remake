@@ -32,7 +32,12 @@ var valid_indices := [1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13]
 
 
 func _ready() -> void:
-	sprite_index = valid_indices[randi_range(0, valid_indices.size() - 1)] as Sprite
+	if (
+		sprite_index == Sprite.ROCKS
+		and get_tree().get_edited_scene_root().name != "InteractivePlant"
+	):
+		sprite_index = (valid_indices[randi_range(0, valid_indices.size() - 1)] as Sprite)
+	_update()
 
 
 func _update() -> void:
@@ -42,7 +47,6 @@ func _update() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	var body_distance := body.global_position.x - global_position.x
-	print_debug(body_distance)
 
 	if abs(body_distance) <= top_drop_width:
 		# top drop
