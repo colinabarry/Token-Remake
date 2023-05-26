@@ -153,7 +153,6 @@ debug_color = Color(0, 0.6, 0.701961, 0.215686)
 modulate = Color(0, 0.698039, 0.964706, 1)
 z_index = 10
 z_as_relative = false
-texture_filter = 3
 texture = ExtResource("5_iwkll")
 hframes = 7
 region_enabled = true
