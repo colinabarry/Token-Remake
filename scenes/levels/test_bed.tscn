@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dm2m54sow7nlk"]
+[gd_scene load_steps=11 format=3 uid="uid://dm2m54sow7nlk"]
 
 [ext_resource type="PackedScene" uid="uid://b874xebdbapxk" path="res://scenes/actors/characters/player/player.tscn" id="1_te8gm"]
 [ext_resource type="PackedScene" uid="uid://dnmska57qgk46" path="res://scenes/actors/tokens/jump_token/jump_token.tscn" id="2_mtn5b"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scripts/crt_layer.gd" id="5_r10wn"]
 [ext_resource type="Material" uid="uid://ce10223yltscx" path="res://shaders/blur/blur_material.tres" id="7_lvyt7"]
 [ext_resource type="PackedScene" uid="uid://b22bcngmpyqp2" path="res://scenes/actors/interactive_plant/interactive_plant.tscn" id="7_mvxxs"]
+[ext_resource type="PackedScene" uid="uid://dslnouplskxdb" path="res://scenes/actors/level_limits/fall_limit.tscn" id="9_cst7k"]
+[ext_resource type="PackedScene" uid="uid://ddx0qcwynroif" path="res://scenes/actors/characters/enemies/lump/lump.tscn" id="9_xjgju"]
 
 [sub_resource type="Environment" id="Environment_114ke"]
 background_mode = 3
@@ -29,7 +31,7 @@ offset_bottom = 1205.0
 color = Color(0.00392157, 0, 0.337255, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_te8gm")]
-position = Vector2(267, 150)
+position = Vector2(336, 136)
 
 [node name="JumpToken" parent="." instance=ExtResource("2_mtn5b")]
 position = Vector2(398, 220)
@@ -58,11 +60,11 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = -10
 layer_2/tile_data = PackedInt32Array(917513, 917504, 0, 983049, 917504, 1, 917531, 983040, 0, 983067, 917504, 1, 917539, 917504, 0, 983075, 983040, 1, 917521, 983040, 0, 983057, 983040, 1, 917504, 917504, 0, 983040, 983040, 1)
 
-[node name="ScreenShaders" type="CanvasLayer" parent="."]
+[node name="CRT" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("5_r10wn")
 
-[node name="CRT" type="ColorRect" parent="ScreenShaders"]
+[node name="CRT" type="ColorRect" parent="CRT"]
 z_index = 100
 z_as_relative = false
 material = ExtResource("5_ieeqc")
@@ -72,11 +74,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScreenShaders2" type="CanvasLayer" parent="."]
+[node name="Blur" type="CanvasLayer" parent="."]
 visible = false
 script = ExtResource("5_r10wn")
 
-[node name="Blur" type="ColorRect" parent="ScreenShaders2"]
+[node name="Blur" type="ColorRect" parent="Blur"]
 visible = false
 z_index = 50
 z_as_relative = false
@@ -220,3 +222,32 @@ sprite_index = 13
 [node name="InteractivePlant33" parent="plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(304, 256)
 sprite_index = 11
+
+[node name="FallLimit" parent="." instance=ExtResource("9_cst7k")]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Lump" parent="Enemies" instance=ExtResource("9_xjgju")]
+position = Vector2(128, 184)
+patrol_width = 8.0
+start_dir = -1
+
+[node name="Lump2" parent="Enemies" instance=ExtResource("9_xjgju")]
+position = Vector2(176, 200)
+patrol_width = 0.0
+
+[node name="Lump3" parent="Enemies" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_xjgju")]
+position = Vector2(80, 168)
+animation_player = NodePath("../Lump/AnimationPlayer")
+patrol_width = 12.0
+
+[node name="Lump4" parent="Enemies" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_xjgju")]
+position = Vector2(32, 136)
+animation_player = NodePath("../Lump2/AnimationPlayer")
+
+[node name="Lump5" parent="Enemies" instance=ExtResource("9_xjgju")]
+position = Vector2(-24, 88)
+start_dir = -1
+
+[node name="Lump6" parent="Enemies" instance=ExtResource("9_xjgju")]
+position = Vector2(24, 88)

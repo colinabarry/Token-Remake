@@ -7,4 +7,4 @@ func _init() -> void:
 
 func process(_delta: float) -> void:
 	player.move()
-	player.fall(16.0)
+	player.fall(12.0)

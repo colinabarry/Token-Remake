@@ -44,8 +44,9 @@ _data = {
 "hover": SubResource("Animation_myt8v")
 }
 
-[node name="JumpToken" type="Area2D"]
+[node name="JumpToken" type="Area2D" node_paths=PackedStringArray("animation_player")]
 script = ExtResource("1_6q45v")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xuuw5")

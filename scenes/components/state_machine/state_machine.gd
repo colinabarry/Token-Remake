@@ -58,7 +58,7 @@ func init(_player: Player) -> void:
 ## Exits the current state, sets and enters the new state
 func change_state(new_state: BaseState) -> void:
 	if current_state:
-		# print_debug(current_state.resource_name, " -> ", new_state.resource_name)
+		print_debug(current_state.resource_name, " -> ", new_state.resource_name)
 		current_state.exit()
 
 	current_state = new_state

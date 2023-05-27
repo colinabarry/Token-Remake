@@ -1,4 +1,6 @@
-extends Area2D
+class_name GroundDetector extends Area2D
+
+signal hit_level_limit
 
 var standing_on_platform := false
 
@@ -24,3 +26,8 @@ func _on_body_shape_exited(
 	body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int
 ) -> void:
 	pass
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area is LevelLimit:
+		hit_level_limit.emit()

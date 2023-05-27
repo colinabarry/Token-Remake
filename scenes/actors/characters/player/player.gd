@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 @export var max_walk_speed := 150.0
 @export var walk_acceleration := 5.0
-@export var jump_velocity := 250.0
+@export var jump_velocity := -250.0
 @export var gravity := 9.8
 @export var default_jump_tokens := 50000
 
@@ -10,18 +10,21 @@ class_name Player extends CharacterBody2D
 var is_on_ground := false
 var input_dir := 0.0
 
+@onready var spawn_location := position
+
 @onready var state_machine := $StateMachine as StateMachine
 @onready var coin_purse := $CoinPurse as CoinPurse
 @onready var anim_player := $AnimationPlayer as AnimationPlayer
 
 @onready var sprite_origin := $SpriteOrigin as Node2D
 @onready var coyote_cast := $CoyoteCast as RayCast2D
-@onready var ground_detector := $GroundDetector as Area2D
+@onready var ground_detector := $GroundDetector as GroundDetector
 @onready var collision := $PlayerCollision as CollisionShape2D
 
 
 func _ready() -> void:
 	add_to_group("player")
+	ground_detector.hit_level_limit.connect(_on_hit_level_limit)
 
 	state_machine.init(self)
 	coin_purse.init(self)
@@ -93,9 +96,18 @@ func move(move_acceleration := walk_acceleration) -> void:
 		sprite_origin.scale.x = signf(input_dir)
 
 
+func stomp(health_component: HealthComponent) -> void:
+	if health_component.is_in_group("lump"):
+		velocity.y = jump_velocity
+
+
 func fall(fall_acceleration := gravity) -> void:
 	velocity.y += fall_acceleration
 
 
 func die() -> void:
 	get_tree().change_scene_to_file("scenes/levels/test_bed.tscn")
+
+
+func _on_hit_level_limit() -> void:
+	position = spawn_location

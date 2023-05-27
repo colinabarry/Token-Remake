@@ -5,9 +5,9 @@ enum TokenType {
 	JUMP_TOKEN,
 }
 
-var token_type := TokenType.BASE_TOKEN
+@export var animation_player: AnimationPlayer
 
-@onready var animation_player := $AnimationPlayer
+var token_type := TokenType.BASE_TOKEN
 
 
 func _ready() -> void:
