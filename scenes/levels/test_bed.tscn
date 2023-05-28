@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dm2m54sow7nlk"]
+[gd_scene load_steps=11 format=3 uid="uid://dm2m54sow7nlk"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_bed.gd" id="1_5un0d"]
 [ext_resource type="PackedScene" uid="uid://b874xebdbapxk" path="res://scenes/actors/characters/player/player.tscn" id="1_te8gm"]
@@ -9,7 +9,6 @@
 [ext_resource type="Material" uid="uid://ce10223yltscx" path="res://shaders/blur/blur_material.tres" id="7_lvyt7"]
 [ext_resource type="PackedScene" uid="uid://b22bcngmpyqp2" path="res://scenes/actors/interactive_plant/interactive_plant.tscn" id="7_mvxxs"]
 [ext_resource type="PackedScene" uid="uid://dslnouplskxdb" path="res://scenes/actors/level_limits/fall_limit.tscn" id="9_cst7k"]
-[ext_resource type="PackedScene" uid="uid://ddx0qcwynroif" path="res://scenes/actors/characters/enemies/lump/lump.tscn" id="9_xjgju"]
 
 [sub_resource type="Environment" id="Environment_114ke"]
 background_mode = 3
@@ -41,19 +40,19 @@ position = Vector2(398, 220)
 [node name="JumpToken2" parent="." instance=ExtResource("2_mtn5b")]
 position = Vector2(449, 219)
 
-[node name="Ground" type="TileMap" parent="."]
+[node name="TileMap" type="TileMap" parent="."]
 texture_filter = 3
 tile_set = ExtResource("4_p84ac")
 format = 2
 layer_0/name = "Ground"
-layer_0/tile_data = PackedInt32Array(1114113, 524288, 5, 1114114, 524288, 5, 1179650, 524288, 6, 1179649, 524288, 6, 1179648, 524288, 6, 1114112, 524288, 5, 1048576, 524288, 4, 1048577, 524288, 4, 1048578, 524288, 4, 1114143, 524288, 5, 1114144, 524288, 5, 1179680, 524288, 6, 1179679, 524288, 6, 1179678, 524288, 6, 1114142, 524288, 5, 1048606, 524288, 4, 1048607, 524288, 4, 1048608, 524288, 4, 1114115, 524288, 5, 1114116, 524288, 5, 1114117, 524288, 5, 1114118, 524288, 5, 1114119, 524288, 5, 1114120, 524288, 5, 1114121, 524288, 5, 1114122, 524288, 5, 1114123, 524288, 5, 1114124, 524288, 5, 1114125, 524288, 5, 1114126, 524288, 5, 1114127, 524288, 5, 1114128, 524288, 5, 1114129, 524288, 5, 1114130, 524288, 5, 1114131, 524288, 5, 1114132, 524288, 5, 1114133, 524288, 5, 1114134, 524288, 5, 1114135, 524288, 5, 1114136, 524288, 5, 1114137, 524288, 5, 1114138, 524288, 5, 1114139, 524288, 5, 1114140, 524288, 5, 1114141, 524288, 5, 1179677, 524288, 6, 1048605, 524288, 4, 1179676, 524288, 6, 1048604, 524288, 4, 1179675, 524288, 6, 1048603, 524288, 4, 1179674, 524288, 6, 1048602, 524288, 4, 1179673, 524288, 6, 1048601, 524288, 4, 1179672, 524288, 6, 1048600, 524288, 4, 1179671, 524288, 6, 1048599, 524288, 4, 1179670, 524288, 6, 1048598, 524288, 4, 1179669, 524288, 6, 1048597, 524288, 4, 1179668, 524288, 6, 1048596, 524288, 4, 1179667, 524288, 6, 1048595, 524288, 4, 1179666, 524288, 6, 1048594, 524288, 4, 1179665, 524288, 6, 1048593, 524288, 4, 1179664, 524288, 6, 1048592, 524288, 4, 1179663, 524288, 6, 1048591, 524288, 4, 1179662, 524288, 6, 1048590, 524288, 4, 1179661, 524288, 6, 1048589, 524288, 4, 1179660, 524288, 6, 1048588, 524288, 4, 1179659, 524288, 6, 1048587, 524288, 4, 1179658, 524288, 6, 1048586, 524288, 4, 1179657, 524288, 6, 1048585, 524288, 4, 1179656, 524288, 6, 1048584, 524288, 4, 1179655, 524288, 6, 1048583, 524288, 4, 1179654, 524288, 6, 1048582, 524288, 4, 1179653, 524288, 6, 1048581, 524288, 4, 1179652, 524288, 6, 1048580, 524288, 4, 1179651, 524288, 6, 1048579, 524288, 4, 1114145, 524288, 5, 1179681, 524288, 6, 1048609, 524288, 4, 1114146, 524288, 5, 1179682, 524288, 6, 1048610, 524288, 4, 1114147, 524288, 5, 1179683, 524288, 6, 1048611, 524288, 4, 1114148, 524288, 5, 1179684, 524288, 6, 1048612, 524288, 4, 1114149, 589824, 5, 1179685, 589824, 6, 1048613, 589824, 4, 1245183, 524288, 6, 1179647, 524288, 5, 1114111, 524288, 4, 1245182, 524288, 6, 1179646, 524288, 5, 1114110, 524288, 4, 851978, 655360, 16, 851979, 786432, 16, 851976, 786432, 15, 851975, 655360, 15, 786439, 655360, 13, 786440, 786432, 13, 851973, 786432, 15, 851972, 655360, 15, 786436, 655360, 14, 720900, 655360, 13, 720901, 786432, 13, 786437, 786432, 14, 851970, 786432, 15, 786434, 786432, 14, 720898, 786432, 14, 655362, 786432, 14, 589826, 786432, 13, 589825, 655360, 13, 655361, 655360, 14, 720897, 655360, 14, 786433, 655360, 14, 851969, 655360, 15, 1245179, 524288, 6, 1179643, 524288, 5, 1114107, 524288, 5, 1114108, 589824, 5, 1245178, 524288, 6, 1179642, 524288, 5, 1114106, 524288, 5, 1245177, 524288, 6, 1179641, 524288, 5, 1114105, 524288, 5, 1245176, 524288, 6, 1179640, 524288, 5, 1114104, 524288, 5, 1245175, 524288, 6, 1179639, 524288, 5, 1114103, 524288, 5, 1245174, 458752, 6, 1179638, 458752, 5, 1114102, 458752, 5, 1048571, 524288, 5, 1048572, 589824, 5, 1048570, 524288, 5, 983034, 524288, 5, 983035, 524288, 5, 983036, 589824, 5, 917498, 524288, 5, 917499, 524288, 5, 917500, 589824, 5, 851962, 524288, 5, 851963, 524288, 5, 851964, 589824, 5, 786426, 524288, 5, 786427, 524288, 5, 917497, 524288, 5, 851961, 524288, 5, 786425, 524288, 5, 720889, 524288, 4, 720890, 524288, 4, 720891, 524288, 4, 851960, 524288, 5, 786424, 524288, 5, 917496, 524288, 5, 917495, 524288, 5, 851959, 524288, 5, 786423, 524288, 5, 917494, 458752, 5, 851958, 458752, 5, 786422, 458752, 5, 983031, 524288, 5, 983030, 458752, 5, 983032, 524288, 5, 1048568, 524288, 5, 1048567, 524288, 5, 1048566, 458752, 5, 1048569, 524288, 5, 983033, 524288, 5, 786428, 589824, 5, 720892, 589824, 4, 720888, 524288, 4, 720887, 524288, 4, 720886, 458752, 4, 1179644, 589824, 5, 1245180, 589824, 6, 1114109, 458752, 4, 1179645, 458752, 5, 1245181, 458752, 6, 393218, 786432, 16, 393217, 720896, 16, 393216, 720896, 16, 458751, 720896, 16, 458750, 720896, 16, 458749, 655360, 16)
+layer_0/tile_data = PackedInt32Array(1114113, 524288, 5, 1114114, 524288, 5, 1179650, 524288, 6, 1179649, 524288, 6, 1179648, 524288, 6, 1114112, 524288, 5, 1048576, 524288, 4, 1048577, 524288, 4, 1048578, 524288, 4, 1114143, 524288, 5, 1114144, 524288, 5, 1179680, 524288, 6, 1179679, 524288, 6, 1179678, 524288, 6, 1114142, 524288, 5, 1048606, 524288, 4, 1048607, 524288, 4, 1048608, 524288, 4, 1114115, 524288, 5, 1114116, 524288, 5, 1114117, 524288, 5, 1114118, 524288, 5, 1114119, 524288, 5, 1114120, 524288, 5, 1114121, 524288, 5, 1114122, 524288, 5, 1114123, 524288, 5, 1114124, 524288, 5, 1114125, 524288, 5, 1114126, 524288, 5, 1114127, 524288, 5, 1114128, 524288, 5, 1114129, 524288, 5, 1114130, 524288, 5, 1114132, 524288, 5, 1114133, 524288, 5, 1114134, 524288, 5, 1114135, 524288, 5, 1114136, 524288, 5, 1114137, 524288, 5, 1114138, 524288, 5, 1114139, 524288, 5, 1114140, 524288, 5, 1114141, 524288, 5, 1179677, 524288, 6, 1048605, 524288, 4, 1179676, 524288, 6, 1048604, 524288, 4, 1179675, 524288, 6, 1048603, 524288, 4, 1179674, 524288, 6, 1048602, 524288, 4, 1179673, 524288, 6, 1048601, 524288, 4, 1179672, 524288, 6, 1048600, 524288, 4, 1179671, 524288, 6, 1048599, 524288, 4, 1179670, 524288, 6, 1048598, 524288, 4, 1179669, 524288, 6, 1048597, 524288, 4, 1179668, 524288, 6, 1048596, 524288, 4, 1179666, 524288, 6, 1048594, 524288, 4, 1179665, 524288, 6, 1048593, 524288, 4, 1179664, 524288, 6, 1048592, 524288, 4, 1179663, 524288, 6, 1048591, 524288, 4, 1179662, 524288, 6, 1048590, 524288, 4, 1179661, 524288, 6, 1048589, 524288, 4, 1179660, 524288, 6, 1048588, 524288, 4, 1179659, 524288, 6, 1048587, 524288, 4, 1179658, 524288, 6, 1048586, 524288, 4, 1179657, 524288, 6, 1048585, 524288, 4, 1179656, 524288, 6, 1048584, 524288, 4, 1179655, 524288, 6, 1048583, 524288, 4, 1179654, 524288, 6, 1048582, 524288, 4, 1179653, 524288, 6, 1048581, 524288, 4, 1179652, 524288, 6, 1048580, 524288, 4, 1179651, 524288, 6, 1048579, 524288, 4, 1114145, 524288, 5, 1179681, 524288, 6, 1048609, 524288, 4, 1114146, 524288, 5, 1179682, 524288, 6, 1048610, 524288, 4, 1114147, 524288, 5, 1179683, 524288, 6, 1048611, 524288, 4, 1114148, 524288, 5, 1179684, 524288, 6, 1048612, 524288, 4, 1114149, 524288, 5, 1179685, 524288, 6, 1048613, 524288, 4, 1245183, 524288, 6, 1179647, 524288, 5, 1114111, 524288, 4, 1245182, 524288, 6, 1179646, 524288, 5, 1114110, 524288, 4, 1114109, 524288, 4, 1179645, 524288, 5, 1245181, 524288, 6, 1114150, 524288, 5, 1114151, 524288, 5, 1179687, 524288, 6, 1179686, 524288, 6, 1048614, 524288, 4, 1048615, 524288, 4, 1114152, 524288, 5, 1179688, 524288, 6, 1048616, 524288, 4, 1114153, 524288, 5, 1179689, 524288, 6, 1048617, 524288, 4, 1114154, 524288, 5, 1179690, 524288, 6, 1048618, 524288, 4, 1114155, 524288, 5, 1179691, 524288, 6, 1048619, 524288, 4, 1114156, 524288, 5, 1179692, 524288, 6, 1048620, 524288, 4, 1114157, 524288, 5, 1179693, 524288, 6, 1048621, 524288, 4, 1114158, 524288, 5, 1179694, 524288, 6, 1048622, 524288, 4, 1114159, 524288, 5, 1179695, 524288, 6, 1048623, 524288, 4, 1114160, 524288, 5, 1179696, 524288, 6, 1048624, 524288, 4, 1114161, 524288, 5, 1179697, 524288, 6, 1048625, 524288, 4, 1114162, 524288, 5, 1179698, 524288, 6, 1048626, 524288, 4, 1114163, 524288, 5, 1179699, 524288, 6, 1048627, 524288, 4, 1114164, 524288, 5, 1179700, 524288, 6, 1048628, 524288, 4, 1114165, 524288, 5, 1179701, 524288, 6, 1048629, 524288, 4, 1114166, 524288, 5, 1179702, 524288, 6, 1048630, 524288, 4, 1114167, 524288, 5, 1179703, 524288, 6, 1048631, 524288, 4, 1114168, 524288, 5, 1179704, 524288, 6, 1048632, 524288, 4, 1114169, 524288, 5, 1179705, 524288, 6, 1048633, 524288, 4, 1114170, 524288, 5, 1179706, 524288, 6, 1048634, 524288, 4, 1114171, 524288, 5, 1179707, 524288, 6, 1048635, 524288, 4, 1114172, 589824, 5, 1179708, 589824, 6, 1048636, 589824, 4, 1245180, 524288, 6, 1179644, 524288, 5, 1114108, 524288, 4, 1245179, 524288, 6, 1179643, 524288, 5, 1114107, 524288, 4, 1245178, 524288, 6, 1179642, 524288, 5, 1114106, 524288, 4, 1245177, 524288, 6, 1179641, 524288, 5, 1114105, 524288, 4, 1245176, 524288, 6, 1179640, 524288, 5, 1114104, 524288, 4, 1245175, 524288, 6, 1179639, 524288, 5, 1114103, 524288, 4, 1245174, 524288, 6, 1179638, 524288, 5, 1114102, 524288, 4, 1245173, 524288, 6, 1179637, 524288, 5, 1114101, 524288, 4, 1245172, 524288, 6, 1179636, 524288, 5, 1114100, 524288, 4, 1245171, 524288, 6, 1179635, 524288, 5, 1114099, 524288, 4, 1245170, 524288, 6, 1179634, 524288, 5, 1114098, 524288, 4, 1245169, 524288, 6, 1179633, 524288, 5, 1114097, 524288, 4, 1245168, 524288, 6, 1179632, 524288, 5, 1114096, 524288, 4, 1245167, 524288, 6, 1179631, 524288, 5, 1114095, 524288, 4, 1245166, 524288, 6, 1179630, 524288, 5, 1114094, 524288, 4, 1245165, 524288, 6, 1179629, 524288, 5, 1114093, 524288, 4, 1245164, 524288, 6, 1179628, 524288, 5, 1114092, 524288, 4, 1245163, 524288, 6, 1179627, 524288, 5, 1114091, 524288, 4, 1245162, 524288, 6, 1179626, 524288, 5, 1114090, 524288, 4, 1245161, 524288, 6, 1179625, 524288, 5, 1114089, 524288, 4, 1245160, 524288, 6, 1179624, 524288, 5, 1114088, 524288, 4, 1245159, 524288, 6, 1179623, 524288, 5, 1114087, 524288, 4, 1245158, 524288, 6, 1179622, 524288, 5, 1114086, 524288, 4, 1245157, 524288, 6, 1179621, 524288, 5, 1114085, 524288, 4, 1245156, 524288, 6, 1179620, 524288, 5, 1114084, 524288, 4, 1245155, 524288, 6, 1179619, 524288, 5, 1114083, 524288, 4, 1245154, 524288, 6, 1179618, 524288, 5, 1114082, 524288, 4, 1179605, 524288, 5, 1179606, 524288, 5, 1179607, 524288, 5, 1179608, 524288, 5, 1179609, 524288, 5, 1179610, 524288, 5, 1179611, 524288, 5, 1179612, 524288, 5, 1179613, 524288, 5, 1179614, 524288, 5, 1179615, 524288, 5, 1179616, 524288, 5, 1179617, 524288, 5, 1245153, 524288, 6, 1114081, 524288, 4, 1245152, 524288, 6, 1114080, 524288, 4, 1245151, 524288, 6, 1114079, 524288, 4, 1245150, 524288, 6, 1114078, 524288, 4, 1245149, 524288, 6, 1114077, 524288, 4, 1245148, 524288, 6, 1114076, 524288, 4, 1245147, 524288, 6, 1114075, 524288, 4, 1245146, 524288, 6, 1114074, 524288, 4, 1245145, 524288, 6, 1114073, 524288, 4, 1245144, 524288, 6, 1114072, 524288, 4, 1245143, 524288, 6, 1114071, 524288, 4, 1245142, 524288, 6, 1114070, 524288, 4, 1245141, 524288, 6, 1114069, 524288, 4, 1245140, 458752, 6, 1179604, 458752, 5, 1114068, 458752, 4, 1048595, 524288, 4, 1114131, 524288, 5, 1179667, 524288, 6)
 layer_1/name = "Foreground Vegetation"
 layer_1/enabled = true
 layer_1/modulate = Color(0.788235, 1, 0.494118, 1)
 layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 10
-layer_1/tile_data = PackedInt32Array()
+layer_1/tile_data = PackedInt32Array(1048574, 1, 65536, 1048575, 1, 65536, 983040, 1, 65536, 983041, 1, 65536, 983042, 1, 65536, 983043, 1, 65536, 983044, 1, 65536, 983045, 1, 65536, 983046, 1, 65536, 983047, 1, 65536, 983048, 1, 65536, 983049, 1, 65536, 983050, 1, 65536, 983051, 1, 65536, 983052, 1, 65536, 983053, 1, 65536, 983054, 1, 65536, 983055, 1, 65536, 983056, 1, 65536, 983057, 1, 65536, 983058, 1, 65536, 983059, 1, 65536, 983060, 1, 65536, 983061, 1, 65536, 983062, 1, 65536, 983063, 1, 65536, 983064, 1, 65536, 983065, 1, 65536, 983082, 1, 65536, 983083, 1, 65536, 983084, 1, 65536, 983085, 1, 65536, 983081, 1, 65536, 983080, 1, 65536, 983079, 1, 65536, 983078, 1, 65536, 983077, 1, 65536, 983076, 1, 65536, 983075, 1, 65536, 983074, 1, 65536, 983073, 1, 65536, 983072, 1, 65536, 983071, 1, 65536, 983070, 1, 65536, 983069, 1, 65536, 983068, 1, 65536, 983067, 1, 65536, 983066, 1, 65536)
 layer_2/name = "Background Vegetation"
 layer_2/enabled = true
 layer_2/modulate = Color(0.670588, 0.462745, 0.231373, 1)
@@ -91,159 +90,142 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="plants" type="Node2D" parent="."]
+[node name="Plants" type="Node2D" parent="."]
+visible = false
 
-[node name="InteractivePlant" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(240, 256)
 sprite_index = 3
 
-[node name="InteractivePlant3" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant3" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(272, 256)
 sprite_index = 6
 
-[node name="InteractivePlant4" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant4" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(288, 256)
 sprite_index = 3
 
-[node name="InteractivePlant7" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant7" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(336, 256)
 sprite_index = 5
 
-[node name="InteractivePlant8" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant8" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(352, 256)
 sprite_index = 2
 
-[node name="InteractivePlant9" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant9" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(368, 256)
 sprite_index = 12
 
-[node name="InteractivePlant10" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant10" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(384, 256)
 sprite_index = 9
 
-[node name="InteractivePlant11" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant11" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(400, 256)
 sprite_index = 9
 
-[node name="InteractivePlant26" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant26" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(448, 256)
 sprite_index = 4
 
-[node name="InteractivePlant27" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant27" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(464, 256)
 sprite_index = 3
 
-[node name="InteractivePlant29" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant29" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(496, 256)
 sprite_index = 10
 
-[node name="InteractivePlant30" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant30" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(512, 256)
 sprite_index = 6
 
-[node name="InteractivePlant31" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant31" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(528, 256)
 sprite_index = 9
 
-[node name="InteractivePlant13" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant13" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(48, 256)
 sprite_index = 2
 
-[node name="InteractivePlant14" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant14" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(64, 256)
 sprite_index = 4
 
-[node name="InteractivePlant15" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant15" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(80, 256)
 sprite_index = 1
 
-[node name="InteractivePlant17" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant17" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(112, 256)
 sprite_index = 11
 
-[node name="InteractivePlant18" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant18" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(128, 256)
 sprite_index = 10
 
-[node name="InteractivePlant20" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant20" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(160, 256)
 sprite_index = 6
 
-[node name="InteractivePlant21" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant21" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(176, 256)
 sprite_index = 9
 
-[node name="InteractivePlant22" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant22" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(192, 256)
 sprite_index = 12
 
-[node name="InteractivePlant23" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant23" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(208, 256)
 sprite_index = 10
 
-[node name="InteractivePlant24" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant24" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(224, 256)
 sprite_index = 10
 
-[node name="InteractivePlant2" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant2" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(144, 256)
 sprite_index = 9
 
-[node name="InteractivePlant5" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant5" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(320, 256)
 sprite_index = 5
 
-[node name="InteractivePlant6" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant6" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(416, 256)
 sprite_index = 5
 
-[node name="InteractivePlant12" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant12" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(480, 256)
 sprite_index = 9
 
-[node name="InteractivePlant16" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant16" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(432, 256)
 sprite_index = 9
 
-[node name="InteractivePlant19" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant19" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(96, 256)
 sprite_index = 6
 
-[node name="InteractivePlant25" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant25" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(32, 256)
 sprite_index = 9
 
-[node name="InteractivePlant28" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant28" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(16, 256)
 sprite_index = 4
 
-[node name="InteractivePlant32" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant32" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(256, 256)
 sprite_index = 13
 
-[node name="InteractivePlant33" parent="plants" instance=ExtResource("7_mvxxs")]
+[node name="InteractivePlant33" parent="Plants" instance=ExtResource("7_mvxxs")]
 position = Vector2(304, 256)
 sprite_index = 11
 
 [node name="FallLimit" parent="." instance=ExtResource("9_cst7k")]
+position = Vector2(-704, 304)
 
 [node name="Enemies" type="Node2D" parent="."]
-
-[node name="Lump2" parent="Enemies" instance=ExtResource("9_xjgju")]
-position = Vector2(128, 184)
-patrol_width = 0.0
-
-[node name="Lump3" parent="Enemies" instance=ExtResource("9_xjgju")]
-position = Vector2(80, 168)
-patrol_width = 8.0
-
-[node name="Lump4" parent="Enemies" instance=ExtResource("9_xjgju")]
-position = Vector2(32, 136)
-patrol_width = 12.0
-
-[node name="Lump5" parent="Enemies" instance=ExtResource("9_xjgju")]
-position = Vector2(24, 88)
-
-[node name="Lump6" parent="Enemies" instance=ExtResource("9_xjgju")]
-position = Vector2(-24, 88)
-start_dir = -1

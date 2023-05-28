@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bkswb2jo3bdrx"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://bkswb2jo3bdrx"]
 
 [ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="1_jaaes"]
+[ext_resource type="PackedScene" uid="uid://b22bcngmpyqp2" path="res://scenes/actors/interactive_plant/interactive_plant.tscn" id="2_nxxv0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_tuu6j"]
 tile_data = PackedInt32Array(0, 917504, 0, 65536, 917504, 1)
@@ -705,6 +706,10 @@ texture = ExtResource("1_jaaes")
 9:13/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:13/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_515f6"]
+resource_name = "plants"
+scenes/1/scene = ExtResource("2_nxxv0")
+
 [resource]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
@@ -715,6 +720,7 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 custom_data_layer_0/name = "is_platform"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_jxx6g")
+sources/1 = SubResource("TileSetScenesCollectionSource_515f6")
 pattern_0 = SubResource("TileMapPattern_tuu6j")
 pattern_1 = SubResource("TileMapPattern_urmog")
 pattern_2 = SubResource("TileMapPattern_g4uw0")
