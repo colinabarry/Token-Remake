@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://dm2m54sow7nlk"]
+[gd_scene load_steps=12 format=3 uid="uid://dm2m54sow7nlk"]
 
+[ext_resource type="Script" path="res://scenes/levels/test_bed.gd" id="1_5un0d"]
 [ext_resource type="PackedScene" uid="uid://b874xebdbapxk" path="res://scenes/actors/characters/player/player.tscn" id="1_te8gm"]
 [ext_resource type="PackedScene" uid="uid://dnmska57qgk46" path="res://scenes/actors/tokens/jump_token/jump_token.tscn" id="2_mtn5b"]
 [ext_resource type="TileSet" uid="uid://bkswb2jo3bdrx" path="res://assets/tilesets/level_tileset.tres" id="4_p84ac"]
@@ -17,6 +18,7 @@ glow_strength = 1.4
 glow_blend_mode = 0
 
 [node name="TestBed" type="Node2D"]
+script = ExtResource("1_5un0d")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_114ke")
@@ -31,7 +33,7 @@ offset_bottom = 1205.0
 color = Color(0.00392157, 0, 0.337255, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_te8gm")]
-position = Vector2(336, 136)
+position = Vector2(424, 56)
 
 [node name="JumpToken" parent="." instance=ExtResource("2_mtn5b")]
 position = Vector2(398, 220)
@@ -227,27 +229,21 @@ sprite_index = 11
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Lump" parent="Enemies" instance=ExtResource("9_xjgju")]
-position = Vector2(128, 184)
-patrol_width = 8.0
-start_dir = -1
-
 [node name="Lump2" parent="Enemies" instance=ExtResource("9_xjgju")]
-position = Vector2(176, 200)
+position = Vector2(128, 184)
 patrol_width = 0.0
 
-[node name="Lump3" parent="Enemies" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_xjgju")]
+[node name="Lump3" parent="Enemies" instance=ExtResource("9_xjgju")]
 position = Vector2(80, 168)
-animation_player = NodePath("../Lump/AnimationPlayer")
+patrol_width = 8.0
+
+[node name="Lump4" parent="Enemies" instance=ExtResource("9_xjgju")]
+position = Vector2(32, 136)
 patrol_width = 12.0
 
-[node name="Lump4" parent="Enemies" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_xjgju")]
-position = Vector2(32, 136)
-animation_player = NodePath("../Lump2/AnimationPlayer")
-
 [node name="Lump5" parent="Enemies" instance=ExtResource("9_xjgju")]
-position = Vector2(-24, 88)
-start_dir = -1
+position = Vector2(24, 88)
 
 [node name="Lump6" parent="Enemies" instance=ExtResource("9_xjgju")]
-position = Vector2(24, 88)
+position = Vector2(-24, 88)
+start_dir = -1

@@ -17,7 +17,13 @@ var is_alive := true
 
 
 func _ready() -> void:
+	dir = start_dir
 	health.add_to_group("lump")
+
+	if patrol_width > 0:
+		animation_player.play("walk")
+	# else:
+	# 	animation_player.play("RESET")
 
 
 func _process(delta: float) -> void:

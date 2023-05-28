@@ -31,6 +31,8 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("level_reset"):
+		die()
 	if Input.is_action_just_pressed("move_drop"):
 		if ground_detector.standing_on_platform:
 			collision.disabled = true
