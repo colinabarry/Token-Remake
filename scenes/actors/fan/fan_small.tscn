@@ -73,7 +73,7 @@ position = Vector2(0, -57)
 shape = SubResource("RectangleShape2D_qm317")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.470588, 0.470588, 0.470588, 1)
+modulate = Color(0.796078, 0.45098, 0.27451, 1)
 rotation = -1.5708
 texture = ExtResource("2_bui6n")
 hframes = 2

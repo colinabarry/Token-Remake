@@ -151,7 +151,7 @@ debug_color = Color(0, 0.6, 0.701961, 0.215686)
 [node name="SpriteOrigin" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite2D" parent="SpriteOrigin"]
-modulate = Color(0, 0.698039, 0.964706, 1)
+modulate = Color(0.368627, 0.780392, 1, 1)
 z_index = 10
 z_as_relative = false
 texture = ExtResource("5_iwkll")

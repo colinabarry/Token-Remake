@@ -228,14 +228,14 @@ _data = {
 position = Vector2(0, 8)
 collision_mask = 273
 script = ExtResource("1_ejotl")
-color = Color(0.643137, 0.729412, 0.372549, 1)
+color = Color(0.271243, 0.315292, 0.12532, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_vukfw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.643137, 0.729412, 0.372549, 1)
+modulate = Color(0.271243, 0.315292, 0.12532, 1)
 z_index = 25
 z_as_relative = false
 texture_filter = 3

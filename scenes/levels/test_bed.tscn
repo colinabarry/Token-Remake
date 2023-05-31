@@ -15,6 +15,7 @@ background_mode = 3
 tonemap_mode = 3
 glow_strength = 1.4
 glow_blend_mode = 0
+adjustment_enabled = true
 
 [node name="TestBed" type="Node2D"]
 script = ExtResource("1_5un0d")
@@ -32,13 +33,14 @@ offset_bottom = 2325.0
 color = Color(0.00392157, 0, 0.337255, 1)
 
 [node name="Player" parent="." instance=ExtResource("1_te8gm")]
-position = Vector2(688, 64)
+position = Vector2(736, 64)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 3
 tile_set = ExtResource("4_p84ac")
 format = 2
 layer_0/name = "Ground"
+layer_0/modulate = Color(0.988235, 0.823529, 0.694118, 1)
 layer_0/tile_data = PackedInt32Array(1114113, 524288, 5, 1114114, 524288, 5, 1179650, 524288, 6, 1179649, 524288, 6, 1179648, 524288, 6, 1114112, 524288, 5, 1048576, 524288, 4, 1048577, 524288, 4, 1048578, 524288, 4, 1114143, 524288, 5, 1114144, 524288, 5, 1179680, 524288, 6, 1179679, 524288, 6, 1179678, 524288, 6, 1114142, 524288, 5, 1048606, 524288, 4, 1048607, 524288, 4, 1048608, 524288, 4, 1114115, 524288, 5, 1114116, 524288, 5, 1114117, 524288, 5, 1114118, 524288, 5, 1114119, 524288, 5, 1114120, 524288, 5, 1114121, 524288, 5, 1114122, 524288, 5, 1114123, 524288, 5, 1114124, 524288, 5, 1114125, 524288, 5, 1114126, 524288, 5, 1114127, 524288, 5, 1114128, 524288, 5, 1114129, 524288, 5, 1114130, 524288, 5, 1114132, 524288, 5, 1114133, 524288, 5, 1114134, 524288, 5, 1114135, 524288, 5, 1114136, 524288, 5, 1114137, 524288, 5, 1114138, 524288, 5, 1114139, 524288, 5, 1114140, 524288, 5, 1114141, 524288, 5, 1179677, 524288, 6, 1048605, 524288, 4, 1179676, 524288, 6, 1048604, 524288, 4, 1179675, 524288, 6, 1048603, 524288, 4, 1179674, 524288, 6, 1048602, 524288, 4, 1179673, 524288, 6, 1048601, 524288, 4, 1179672, 524288, 6, 1048600, 524288, 4, 1179671, 524288, 6, 1048599, 524288, 4, 1179670, 524288, 6, 1048598, 524288, 4, 1179669, 524288, 6, 1048597, 524288, 4, 1179668, 524288, 6, 1048596, 524288, 4, 1179666, 524288, 6, 1048594, 524288, 4, 1179665, 524288, 6, 1048593, 524288, 4, 1179664, 524288, 6, 1048592, 524288, 4, 1179663, 524288, 6, 1048591, 524288, 4, 1179662, 524288, 6, 1048590, 524288, 4, 1179661, 524288, 6, 1048589, 524288, 4, 1179660, 524288, 6, 1048588, 524288, 4, 1179659, 524288, 6, 1048587, 524288, 4, 1179658, 524288, 6, 1048586, 524288, 4, 1179657, 524288, 6, 1048585, 524288, 4, 1179656, 524288, 6, 1048584, 524288, 4, 1179655, 524288, 6, 1048583, 524288, 4, 1179654, 524288, 6, 1048582, 524288, 4, 1179653, 524288, 6, 1048581, 524288, 4, 1179652, 524288, 6, 1048580, 524288, 4, 1179651, 524288, 6, 1048579, 524288, 4, 1114145, 524288, 5, 1179681, 524288, 6, 1048609, 524288, 4, 1114146, 524288, 5, 1179682, 524288, 6, 1048610, 524288, 4, 1114147, 524288, 5, 1179683, 524288, 6, 1048611, 524288, 4, 1114148, 524288, 5, 1179684, 524288, 6, 1048612, 524288, 4, 1114149, 524288, 5, 1179685, 524288, 6, 1048613, 524288, 4, 1245183, 524288, 6, 1179647, 524288, 5, 1114111, 524288, 4, 1245182, 524288, 6, 1179646, 524288, 5, 1114110, 524288, 4, 1114109, 524288, 4, 1179645, 524288, 5, 1245181, 524288, 6, 1114150, 524288, 5, 1114151, 524288, 5, 1179687, 524288, 6, 1179686, 524288, 6, 1048614, 524288, 4, 1048615, 524288, 4, 1114152, 524288, 5, 1179688, 524288, 6, 1048616, 524288, 4, 1114153, 524288, 5, 1179689, 524288, 6, 1048617, 524288, 4, 1114154, 524288, 5, 1179690, 524288, 6, 1048618, 524288, 4, 1114155, 524288, 5, 1179691, 524288, 6, 1048619, 524288, 4, 1114156, 524288, 5, 1179692, 524288, 6, 1048620, 524288, 4, 1114157, 524288, 5, 1179693, 524288, 6, 1048621, 524288, 4, 1114158, 524288, 5, 1179694, 524288, 6, 1048622, 524288, 4, 1114159, 524288, 5, 1179695, 524288, 6, 1048623, 524288, 4, 1114160, 524288, 5, 1179696, 524288, 6, 1048624, 524288, 4, 1114161, 524288, 5, 1179697, 524288, 6, 1048625, 524288, 4, 1114162, 524288, 5, 1179698, 524288, 6, 1048626, 524288, 4, 1114163, 524288, 5, 1179699, 524288, 6, 1048627, 524288, 4, 1114164, 524288, 5, 1179700, 524288, 6, 1048628, 524288, 4, 1114165, 524288, 5, 1179701, 524288, 6, 1048629, 524288, 4, 1114166, 524288, 5, 1179702, 524288, 6, 1048630, 524288, 4, 1114167, 524288, 5, 1179703, 524288, 6, 1048631, 524288, 4, 1114168, 524288, 5, 1179704, 524288, 6, 1048632, 524288, 4, 1114169, 524288, 5, 1179705, 524288, 6, 1048633, 524288, 4, 1114170, 524288, 5, 1179706, 524288, 6, 1048634, 524288, 4, 1114171, 524288, 5, 1179707, 524288, 6, 1048635, 524288, 4, 1114172, 589824, 5, 1179708, 589824, 6, 1048636, 589824, 4, 1245180, 524288, 6, 1179644, 524288, 5, 1114108, 524288, 4, 1245179, 524288, 6, 1179643, 524288, 5, 1114107, 524288, 4, 1245178, 524288, 6, 1179642, 524288, 5, 1114106, 524288, 4, 1245177, 524288, 6, 1179641, 524288, 5, 1114105, 524288, 4, 1245176, 524288, 6, 1179640, 524288, 5, 1114104, 524288, 4, 1245175, 524288, 6, 1179639, 524288, 5, 1114103, 524288, 4, 1245174, 524288, 6, 1179638, 524288, 5, 1114102, 524288, 4, 1245173, 524288, 6, 1179637, 524288, 5, 1114101, 524288, 4, 1245172, 524288, 6, 1179636, 524288, 5, 1114100, 524288, 4, 1245171, 524288, 6, 1179635, 524288, 5, 1114099, 524288, 4, 1245170, 524288, 6, 1179634, 524288, 5, 1114098, 524288, 4, 1245169, 524288, 6, 1179633, 524288, 5, 1114097, 524288, 4, 1245168, 524288, 6, 1179632, 524288, 5, 1114096, 524288, 4, 1245167, 524288, 6, 1179631, 524288, 5, 1114095, 524288, 4, 1245166, 524288, 6, 1179630, 524288, 5, 1114094, 524288, 4, 1245165, 524288, 6, 1179629, 524288, 5, 1114093, 524288, 4, 1245164, 524288, 6, 1179628, 524288, 5, 1114092, 524288, 4, 1245163, 524288, 6, 1179627, 524288, 5, 1114091, 524288, 4, 1245162, 524288, 6, 1179626, 524288, 5, 1114090, 524288, 4, 1245161, 524288, 6, 1179625, 524288, 5, 1114089, 524288, 4, 1245160, 524288, 6, 1179624, 524288, 5, 1114088, 524288, 4, 1245159, 524288, 6, 1179623, 524288, 5, 1114087, 524288, 4, 1245158, 524288, 6, 1179622, 524288, 5, 1114086, 524288, 4, 1245157, 524288, 6, 1179621, 524288, 5, 1114085, 524288, 4, 1245156, 524288, 6, 1179620, 524288, 5, 1114084, 524288, 4, 1245155, 524288, 6, 1179619, 524288, 5, 1114083, 524288, 4, 1245154, 524288, 6, 1179618, 524288, 5, 1114082, 524288, 4, 1179605, 524288, 5, 1179606, 524288, 5, 1179607, 524288, 5, 1179608, 524288, 5, 1179609, 524288, 5, 1179610, 524288, 5, 1179611, 524288, 5, 1179612, 524288, 5, 1179613, 524288, 5, 1179614, 524288, 5, 1179615, 524288, 5, 1179616, 524288, 5, 1179617, 524288, 5, 1245153, 524288, 6, 1114081, 524288, 4, 1245152, 524288, 6, 1114080, 524288, 4, 1245151, 524288, 6, 1114079, 524288, 4, 1245150, 524288, 6, 1114078, 524288, 4, 1245149, 524288, 6, 1114077, 524288, 4, 1245148, 524288, 6, 1114076, 524288, 4, 1245147, 524288, 6, 1114075, 524288, 4, 1245146, 524288, 6, 1114074, 524288, 4, 1245145, 524288, 6, 1114073, 524288, 4, 1245144, 524288, 6, 1114072, 524288, 4, 1245143, 524288, 6, 1114071, 524288, 4, 1245142, 524288, 6, 1114070, 524288, 4, 1245141, 524288, 6, 1114069, 524288, 4, 1245140, 458752, 6, 1179604, 458752, 5, 1114068, 458752, 4, 1048595, 524288, 4, 1114131, 524288, 5, 1179667, 524288, 6)
 layer_1/name = "Foreground Vegetation"
 layer_1/enabled = true
@@ -49,7 +51,7 @@ layer_1/z_index = 10
 layer_1/tile_data = PackedInt32Array(1048574, 1, 65536, 1048575, 1, 65536, 983040, 1, 65536, 983041, 1, 65536, 983042, 1, 65536, 983043, 1, 65536, 983044, 1, 65536, 983045, 1, 65536, 983046, 1, 65536, 983047, 1, 65536, 983048, 1, 65536, 983049, 1, 65536, 983050, 1, 65536, 983051, 1, 65536, 983052, 1, 65536, 983053, 1, 65536, 983054, 1, 65536, 983055, 1, 65536, 983056, 1, 65536, 983057, 1, 65536, 983058, 1, 65536, 983059, 1, 65536, 983060, 1, 65536, 983082, 1, 65536, 983083, 1, 65536, 983084, 1, 65536, 983085, 1, 65536, 983081, 1, 65536, 983077, 1, 65536, 983076, 1, 65536, 983075, 1, 65536, 983074, 1, 65536, 983073, 1, 65536, 983072, 1, 65536, 983086, 1, 65536, 983087, 1, 65536, 983088, 1, 65536, 983089, 1, 65536, 983090, 1, 65536, 983091, 1, 65536, 983092, 1, 65536, 983093, 1, 65536, 983094, 1, 65536, 983095, 1, 65536, 983096, 1, 65536, 1048573, 1, 65536, 1048572, 1, 65536, 1048571, 1, 65536, 1048570, 1, 65536, 1048569, 1, 65536, 1048568, 1, 65536, 983079, 1, 65536, 983080, 1, 65536)
 layer_2/name = "Background Vegetation"
 layer_2/enabled = true
-layer_2/modulate = Color(0.670588, 0.462745, 0.231373, 1)
+layer_2/modulate = Color(0.282353, 0.176471, 0.0666667, 1)
 layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = -10
@@ -81,7 +83,6 @@ visible = false
 script = ExtResource("5_r10wn")
 
 [node name="Blur" type="ColorRect" parent="Blur"]
-visible = false
 z_index = 50
 z_as_relative = false
 material = ExtResource("7_lvyt7")
@@ -114,67 +115,67 @@ patrol_width = 24.0
 position = Vector2(616, 248)
 
 [connection signal="body_entered" from="TileMap/InteractivePlant" to="TileMap/InteractivePlant" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177230" to="TileMap/@InteractivePlant@177230" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177231" to="TileMap/@InteractivePlant@177231" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177232" to="TileMap/@InteractivePlant@177232" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177233" to="TileMap/@InteractivePlant@177233" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177234" to="TileMap/@InteractivePlant@177234" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177235" to="TileMap/@InteractivePlant@177235" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177236" to="TileMap/@InteractivePlant@177236" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177237" to="TileMap/@InteractivePlant@177237" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177238" to="TileMap/@InteractivePlant@177238" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177239" to="TileMap/@InteractivePlant@177239" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177240" to="TileMap/@InteractivePlant@177240" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177241" to="TileMap/@InteractivePlant@177241" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177242" to="TileMap/@InteractivePlant@177242" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177243" to="TileMap/@InteractivePlant@177243" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177244" to="TileMap/@InteractivePlant@177244" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177245" to="TileMap/@InteractivePlant@177245" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177246" to="TileMap/@InteractivePlant@177246" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177247" to="TileMap/@InteractivePlant@177247" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177248" to="TileMap/@InteractivePlant@177248" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177249" to="TileMap/@InteractivePlant@177249" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177250" to="TileMap/@InteractivePlant@177250" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177251" to="TileMap/@InteractivePlant@177251" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177252" to="TileMap/@InteractivePlant@177252" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177253" to="TileMap/@InteractivePlant@177253" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177254" to="TileMap/@InteractivePlant@177254" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177255" to="TileMap/@InteractivePlant@177255" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177256" to="TileMap/@InteractivePlant@177256" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177257" to="TileMap/@InteractivePlant@177257" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177258" to="TileMap/@InteractivePlant@177258" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177259" to="TileMap/@InteractivePlant@177259" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177260" to="TileMap/@InteractivePlant@177260" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177261" to="TileMap/@InteractivePlant@177261" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177262" to="TileMap/@InteractivePlant@177262" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177263" to="TileMap/@InteractivePlant@177263" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177264" to="TileMap/@InteractivePlant@177264" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177265" to="TileMap/@InteractivePlant@177265" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177266" to="TileMap/@InteractivePlant@177266" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177267" to="TileMap/@InteractivePlant@177267" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177268" to="TileMap/@InteractivePlant@177268" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177269" to="TileMap/@InteractivePlant@177269" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177270" to="TileMap/@InteractivePlant@177270" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177271" to="TileMap/@InteractivePlant@177271" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177272" to="TileMap/@InteractivePlant@177272" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177273" to="TileMap/@InteractivePlant@177273" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177274" to="TileMap/@InteractivePlant@177274" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177275" to="TileMap/@InteractivePlant@177275" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177276" to="TileMap/@InteractivePlant@177276" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177277" to="TileMap/@InteractivePlant@177277" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177278" to="TileMap/@InteractivePlant@177278" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177279" to="TileMap/@InteractivePlant@177279" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177280" to="TileMap/@InteractivePlant@177280" method="_on_body_entered" flags=18]
-[connection signal="body_entered" from="TileMap/@InteractivePlant@177281" to="TileMap/@InteractivePlant@177281" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205354" to="TileMap/@InteractivePlant@205354" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205355" to="TileMap/@InteractivePlant@205355" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205356" to="TileMap/@InteractivePlant@205356" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205357" to="TileMap/@InteractivePlant@205357" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205358" to="TileMap/@InteractivePlant@205358" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205359" to="TileMap/@InteractivePlant@205359" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205360" to="TileMap/@InteractivePlant@205360" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205361" to="TileMap/@InteractivePlant@205361" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205362" to="TileMap/@InteractivePlant@205362" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205363" to="TileMap/@InteractivePlant@205363" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205364" to="TileMap/@InteractivePlant@205364" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205365" to="TileMap/@InteractivePlant@205365" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205366" to="TileMap/@InteractivePlant@205366" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205367" to="TileMap/@InteractivePlant@205367" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205368" to="TileMap/@InteractivePlant@205368" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205369" to="TileMap/@InteractivePlant@205369" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205370" to="TileMap/@InteractivePlant@205370" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205371" to="TileMap/@InteractivePlant@205371" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205372" to="TileMap/@InteractivePlant@205372" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205373" to="TileMap/@InteractivePlant@205373" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205374" to="TileMap/@InteractivePlant@205374" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205375" to="TileMap/@InteractivePlant@205375" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205376" to="TileMap/@InteractivePlant@205376" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205377" to="TileMap/@InteractivePlant@205377" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205378" to="TileMap/@InteractivePlant@205378" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205379" to="TileMap/@InteractivePlant@205379" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205380" to="TileMap/@InteractivePlant@205380" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205381" to="TileMap/@InteractivePlant@205381" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205382" to="TileMap/@InteractivePlant@205382" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205383" to="TileMap/@InteractivePlant@205383" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205384" to="TileMap/@InteractivePlant@205384" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205385" to="TileMap/@InteractivePlant@205385" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205386" to="TileMap/@InteractivePlant@205386" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205387" to="TileMap/@InteractivePlant@205387" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205388" to="TileMap/@InteractivePlant@205388" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205389" to="TileMap/@InteractivePlant@205389" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205390" to="TileMap/@InteractivePlant@205390" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205391" to="TileMap/@InteractivePlant@205391" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205392" to="TileMap/@InteractivePlant@205392" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205393" to="TileMap/@InteractivePlant@205393" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205394" to="TileMap/@InteractivePlant@205394" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205395" to="TileMap/@InteractivePlant@205395" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205396" to="TileMap/@InteractivePlant@205396" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205397" to="TileMap/@InteractivePlant@205397" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205398" to="TileMap/@InteractivePlant@205398" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205399" to="TileMap/@InteractivePlant@205399" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205400" to="TileMap/@InteractivePlant@205400" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205401" to="TileMap/@InteractivePlant@205401" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205402" to="TileMap/@InteractivePlant@205402" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205403" to="TileMap/@InteractivePlant@205403" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205404" to="TileMap/@InteractivePlant@205404" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@InteractivePlant@205405" to="TileMap/@InteractivePlant@205405" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="TileMap/FanSmall" to="TileMap/FanSmall" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="TileMap/FanSmall" to="TileMap/FanSmall" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="TileMap/@FanSmall@177282" to="TileMap/@FanSmall@177282" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="TileMap/@FanSmall@177282" to="TileMap/@FanSmall@177282" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="TileMap/@FanSmall@177283" to="TileMap/@FanSmall@177283" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="TileMap/@FanSmall@177283" to="TileMap/@FanSmall@177283" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="TileMap/@FanSmall@177284" to="TileMap/@FanSmall@177284" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="TileMap/@FanSmall@177284" to="TileMap/@FanSmall@177284" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="TileMap/@FanSmall@177285" to="TileMap/@FanSmall@177285" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="TileMap/@FanSmall@177285" to="TileMap/@FanSmall@177285" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="TileMap/@FanSmall@177286" to="TileMap/@FanSmall@177286" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="TileMap/@FanSmall@177286" to="TileMap/@FanSmall@177286" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="TileMap/@FanSmall@205406" to="TileMap/@FanSmall@205406" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="TileMap/@FanSmall@205406" to="TileMap/@FanSmall@205406" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="TileMap/@FanSmall@205407" to="TileMap/@FanSmall@205407" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="TileMap/@FanSmall@205407" to="TileMap/@FanSmall@205407" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="TileMap/@FanSmall@205408" to="TileMap/@FanSmall@205408" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="TileMap/@FanSmall@205408" to="TileMap/@FanSmall@205408" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="TileMap/@FanSmall@205409" to="TileMap/@FanSmall@205409" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="TileMap/@FanSmall@205409" to="TileMap/@FanSmall@205409" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="TileMap/@FanSmall@205410" to="TileMap/@FanSmall@205410" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="TileMap/@FanSmall@205410" to="TileMap/@FanSmall@205410" method="_on_body_exited" flags=18]
