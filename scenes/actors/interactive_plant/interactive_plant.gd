@@ -24,6 +24,10 @@ enum Sprite {
 	set(val):
 		sprite_index = val
 		_update()
+@export var color := Color.WHITE:
+	set(val):
+		color = val
+		_update()
 @export var top_drop_width := 4.0
 
 var valid_indices := [1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13]
@@ -33,14 +37,19 @@ var valid_indices := [1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13]
 
 
 func _ready() -> void:
+	# breakpoint
 	if sprite_index != Sprite.ROCKS:
 		return
 
 	# if Engine.is_editor_hint():
 	var edited_scene_root := get_tree().get_edited_scene_root()
 	if edited_scene_root:
-		if edited_scene_root.name != "InteractivePlant":
-			sprite_index = (valid_indices[randi_range(0, valid_indices.size() - 1)] as Sprite)
+		if edited_scene_root.name == "InteractivePlant":
+			return
+
+	# randomize()
+	seed(get_rid().get_id())
+	sprite_index = (valid_indices[randi_range(0, valid_indices.size() - 1)] as Sprite)
 
 	# if (
 	# 	sprite_index == Sprite.ROCKS
@@ -52,6 +61,7 @@ func _ready() -> void:
 func _update() -> void:
 	if sprite:
 		sprite.frame = sprite_index
+		sprite.modulate = color
 
 
 func _on_body_entered(body: Node2D) -> void:
