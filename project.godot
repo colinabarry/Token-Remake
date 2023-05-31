@@ -65,6 +65,12 @@ level_reset={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="Layer 2"
+2d_physics/layer_5="player"
+2d_physics/layer_9="enemy"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
