@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddx0qcwynroif"]
+[gd_scene load_steps=13 format=3 uid="uid://ddx0qcwynroif"]
 
 [ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="1_ev0pa"]
 [ext_resource type="PackedScene" uid="uid://bsfi6t5hy01dm" path="res://scenes/components/damage_component/damage_component.tscn" id="2_bgapl"]
 [ext_resource type="Script" path="res://scenes/actors/characters/enemies/lump/lump.gd" id="2_iidpj"]
 [ext_resource type="PackedScene" uid="uid://dlx60mkkcop6w" path="res://scenes/components/health_component/health_component.tscn" id="3_eqbj5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yc6au"]
+radius = 5.09902
 
 [sub_resource type="Animation" id="Animation_fdb4g"]
 length = 0.001
@@ -90,16 +93,26 @@ size = Vector2(8, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwoph"]
 size = Vector2(10, 4)
 
-[node name="Lump" type="Sprite2D" node_paths=PackedStringArray("animation_player")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dy2qi"]
+size = Vector2(64, 30)
+
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("animation_player")]
+script = ExtResource("2_iidpj")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_yc6au")
+
+[node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(1, 0.427451, 0.388235, 1)
 texture = ExtResource("1_ev0pa")
 hframes = 5
 region_enabled = true
 region_rect = Rect2(0, 256, 80, 16)
-script = ExtResource("2_iidpj")
-animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite")
 libraries = {
 "": SubResource("AnimationLibrary_xdp1w")
 }
@@ -107,7 +120,7 @@ libraries = {
 [node name="DamageComponent" parent="." instance=ExtResource("2_bgapl")]
 position = Vector2(0, 4)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageComponent"]
+[node name="DamageCollision" type="CollisionShape2D" parent="DamageComponent"]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_m815o")
 debug_color = Color(0.858824, 0.337255, 0.360784, 0.419608)
@@ -115,9 +128,17 @@ debug_color = Color(0.858824, 0.337255, 0.360784, 0.419608)
 [node name="HealthComponent" parent="." instance=ExtResource("3_eqbj5")]
 position = Vector2(0, -2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HealthComponent"]
+[node name="HealthCollision" type="CollisionShape2D" parent="HealthComponent"]
 position = Vector2(0, 2)
 rotation = 3.14159
 shape = SubResource("RectangleShape2D_bwoph")
 one_way_collision = true
 debug_color = Color(0, 0.65098, 0.0941176, 0.419608)
+
+[node name="HopDetector" type="Area2D" parent="."]
+
+[node name="HopCollision" type="CollisionShape2D" parent="HopDetector"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_dy2qi")
+
+[connection signal="body_entered" from="HopDetector" to="." method="_on_hop_detector_body_entered"]
