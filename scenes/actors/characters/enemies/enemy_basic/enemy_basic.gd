@@ -49,6 +49,7 @@ func die() -> void:
 		return
 
 	is_alive = false
+	velocity.y += 100
 	damage.queue_free()
 	health.queue_free()
 	hop_detector.queue_free()

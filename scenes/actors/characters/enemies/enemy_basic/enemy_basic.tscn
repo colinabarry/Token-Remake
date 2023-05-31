@@ -1,9 +1,9 @@
 [gd_scene load_steps=13 format=3 uid="uid://ddx0qcwynroif"]
 
-[ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="1_ev0pa"]
-[ext_resource type="Script" path="res://scenes/actors/characters/enemies/lump/enemy_basic.gd" id="1_jy4ks"]
-[ext_resource type="PackedScene" uid="uid://bsfi6t5hy01dm" path="res://scenes/components/damage_component/damage_component.tscn" id="2_bgapl"]
-[ext_resource type="PackedScene" uid="uid://dlx60mkkcop6w" path="res://scenes/components/health_component/health_component.tscn" id="3_eqbj5"]
+[ext_resource type="Script" path="res://scenes/actors/characters/enemies/enemy_basic/enemy_basic.gd" id="1_5pqv8"]
+[ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="2_r533d"]
+[ext_resource type="PackedScene" uid="uid://bsfi6t5hy01dm" path="res://scenes/components/damage_component/damage_component.tscn" id="3_6om5v"]
+[ext_resource type="PackedScene" uid="uid://dlx60mkkcop6w" path="res://scenes/components/health_component/health_component.tscn" id="4_b7to2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yc6au"]
 radius = 5.09902
@@ -98,7 +98,7 @@ size = Vector2(64, 30)
 
 [node name="EnemyBasic" type="CharacterBody2D" node_paths=PackedStringArray("animation_player")]
 collision_layer = 256
-script = ExtResource("1_jy4ks")
+script = ExtResource("1_5pqv8")
 animation_player = NodePath("AnimationPlayer")
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
@@ -106,8 +106,8 @@ position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_yc6au")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-modulate = Color(1, 0.427451, 0.388235, 1)
-texture = ExtResource("1_ev0pa")
+modulate = Color(1, 0.345098, 0.454902, 1)
+texture = ExtResource("2_r533d")
 hframes = 5
 region_enabled = true
 region_rect = Rect2(0, 256, 80, 16)
@@ -118,7 +118,8 @@ libraries = {
 "": SubResource("AnimationLibrary_xdp1w")
 }
 
-[node name="DamageComponent" parent="." instance=ExtResource("2_bgapl")]
+[node name="DamageComponent" parent="." instance=ExtResource("3_6om5v")]
+visible = false
 position = Vector2(0, 4)
 collision_mask = 17
 
@@ -127,7 +128,8 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_m815o")
 debug_color = Color(0.858824, 0.337255, 0.360784, 0.419608)
 
-[node name="HealthComponent" parent="." instance=ExtResource("3_eqbj5")]
+[node name="HealthComponent" parent="." instance=ExtResource("4_b7to2")]
+visible = false
 position = Vector2(0, -2)
 collision_mask = 17
 
@@ -139,6 +141,7 @@ one_way_collision = true
 debug_color = Color(0, 0.65098, 0.0941176, 0.419608)
 
 [node name="HopDetector" type="Area2D" parent="."]
+visible = false
 collision_mask = 17
 
 [node name="HopCollision" type="CollisionShape2D" parent="HopDetector"]
