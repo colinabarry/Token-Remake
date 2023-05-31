@@ -49,7 +49,6 @@ func die() -> void:
 		return
 
 	is_alive = false
-	set_collision_mask_value(5, false)
 	damage.queue_free()
 	health.queue_free()
 	hop_detector.queue_free()
@@ -57,12 +56,17 @@ func die() -> void:
 
 
 func _hop() -> void:
-	print_debug("hoppy")
+	# print_debug("hoppy")
+	if not is_on_floor():
+		return
+
 	velocity.y = -250.0
 
 
 func _on_hop_detector_body_entered(body: Node2D) -> void:
 	if not is_alive:
+		return
+	if not is_hopper:
 		return
 
 	var player := body as Player

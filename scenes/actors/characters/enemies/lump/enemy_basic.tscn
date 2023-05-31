@@ -98,7 +98,6 @@ size = Vector2(64, 30)
 
 [node name="EnemyBasic" type="CharacterBody2D" node_paths=PackedStringArray("animation_player")]
 collision_layer = 256
-collision_mask = 17
 script = ExtResource("1_jy4ks")
 animation_player = NodePath("AnimationPlayer")
 
