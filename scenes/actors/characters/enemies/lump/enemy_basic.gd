@@ -14,6 +14,7 @@ var is_alive := true
 @onready var health := $HealthComponent as HealthComponent
 @onready var damage := $DamageComponent as DamageComponent
 @onready var hop_detector := $HopDetector as Area2D
+@onready var collision := $EnemyCollision as CollisionShape2D
 
 @onready var spawn_position := position
 
@@ -48,6 +49,7 @@ func die() -> void:
 		return
 
 	is_alive = false
+	set_collision_mask_value(5, false)
 	damage.queue_free()
 	health.queue_free()
 	hop_detector.queue_free()
