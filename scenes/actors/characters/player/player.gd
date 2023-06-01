@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@export var max_walk_speed := 150.0
+@export var max_walk_speed := 175.0
 @export var walk_acceleration := 5.0
 @export var jump_velocity := -250.0
 @export var gravity := 9.8

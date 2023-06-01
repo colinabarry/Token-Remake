@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://blrqubucfofav"]
+
+[ext_resource type="Script" path="res://scenes/levels/test_bed/test_bed.gd" id="1_ud1j1"]
+[ext_resource type="Environment" uid="uid://rpk3qeg13q8i" path="res://assets/environments/environment.tres" id="2_ofl8h"]
+[ext_resource type="PackedScene" uid="uid://b874xebdbapxk" path="res://scenes/actors/characters/player/player.tscn" id="3_o6sop"]
+[ext_resource type="TileSet" uid="uid://bkswb2jo3bdrx" path="res://assets/tilesets/level_tileset.tres" id="4_ctwqq"]
+[ext_resource type="Script" path="res://scripts/crt_layer.gd" id="5_0xy1u"]
+[ext_resource type="Material" uid="uid://bvwhh6d4lrqtd" path="res://shaders/crt_simple/crt_simple_material.tres" id="6_j4a03"]
+[ext_resource type="Material" uid="uid://ce10223yltscx" path="res://shaders/blur/blur_material.tres" id="7_w50yv"]
+[ext_resource type="PackedScene" uid="uid://dslnouplskxdb" path="res://scenes/actors/level_limits/fall_limit.tscn" id="8_c8ahq"]
+
+[node name="TestBed" type="Node2D"]
+script = ExtResource("1_ud1j1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("2_ofl8h")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -100
+z_as_relative = false
+offset_left = -2512.0
+offset_top = -1800.0
+offset_right = 3285.0
+offset_bottom = 2325.0
+color = Color(0.00392157, 0, 0.337255, 1)
+
+[node name="Player" parent="." instance=ExtResource("3_o6sop")]
+position = Vector2(391, 136)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 3
+tile_set = ExtResource("4_ctwqq")
+format = 2
+layer_0/name = "Ground"
+layer_0/modulate = Color(0.988235, 0.823529, 0.694118, 1)
+layer_0/tile_data = PackedInt32Array(1245226, 524288, 5, 1245225, 524288, 5, 1245224, 524288, 5, 1245223, 524288, 5, 1245222, 524288, 5, 1245221, 524288, 5, 1245220, 524288, 5, 1245212, 524288, 5, 1245211, 524288, 5, 1245210, 524288, 5, 1245209, 524288, 5, 1245208, 524288, 5, 1245207, 524288, 5, 1245206, 524288, 5, 1245205, 524288, 5, 1245204, 524288, 5, 1245203, 524288, 5, 1245202, 524288, 5, 1245201, 524288, 5, 1245200, 524288, 5, 1310736, 524288, 6, 1179664, 524288, 4, 1310737, 524288, 6, 1179665, 524288, 4, 1310738, 524288, 6, 1179666, 524288, 4, 1310739, 524288, 6, 1179667, 524288, 4, 1310740, 524288, 6, 1179668, 524288, 4, 1310741, 524288, 6, 1179669, 524288, 4, 1310742, 524288, 6, 1179670, 524288, 4, 1310743, 524288, 6, 1179671, 524288, 4, 1310744, 524288, 6, 1179672, 524288, 4, 1310745, 524288, 6, 1179673, 524288, 4, 1310746, 524288, 6, 1179674, 524288, 4, 1310747, 524288, 6, 1179675, 524288, 4, 1310748, 524288, 6, 1179676, 524288, 4, 1310756, 524288, 6, 1179684, 524288, 4, 1310757, 524288, 6, 1179685, 524288, 4, 1310758, 524288, 6, 1179686, 524288, 4, 1310759, 524288, 6, 1179687, 524288, 4, 1310760, 524288, 6, 1179688, 524288, 4, 1310761, 524288, 6, 1179689, 524288, 4, 1310762, 524288, 6, 1179690, 524288, 4, 1179691, 524288, 4, 1245227, 524288, 5, 1310763, 524288, 6, 1245228, 524288, 5, 1310764, 524288, 6, 1179692, 524288, 4, 1245229, 589824, 5, 1310765, 589824, 6, 1179693, 589824, 4, 1310735, 458752, 6, 1179663, 458752, 4, 1245199, 458752, 5, 1245240, 524288, 5, 1245241, 524288, 5, 1310777, 524288, 6, 1310776, 524288, 6, 1310775, 524288, 6, 1245239, 524288, 5, 1179703, 524288, 4, 1179704, 524288, 4, 1179705, 524288, 4, 1245242, 524288, 5, 1310778, 524288, 6, 1179706, 524288, 4, 1245243, 524288, 5, 1310779, 524288, 6, 1179707, 524288, 4, 1245244, 524288, 5, 1310780, 524288, 6, 1179708, 524288, 4, 1245245, 524288, 5, 1310781, 524288, 6, 1179709, 524288, 4, 1245246, 524288, 5, 1310782, 524288, 6, 1179710, 524288, 4, 1245247, 524288, 5, 1310783, 524288, 6, 1179711, 524288, 4, 1245248, 524288, 5, 1310784, 524288, 6, 1179712, 524288, 4, 1245249, 524288, 5, 1310785, 524288, 6, 1179713, 524288, 4, 1245250, 524288, 5, 1310786, 524288, 6, 1179714, 524288, 4, 1245251, 524288, 5, 1310787, 524288, 6, 1179715, 524288, 4, 1245252, 589824, 5, 1310788, 589824, 6, 1179716, 589824, 4, 1310774, 524288, 6, 1179702, 524288, 4, 1245238, 524288, 5, 1310773, 458752, 6, 1245237, 458752, 5, 1179701, 458752, 4, 1310755, 458752, 6, 1245219, 458752, 5, 1179683, 458752, 4, 1245213, 524288, 5, 1310749, 524288, 6, 1179677, 524288, 4, 1245214, 524288, 5, 1310750, 524288, 6, 1179678, 524288, 4, 1245215, 589824, 5, 1310751, 589824, 6, 1179679, 589824, 4, 1245255, 524288, 5, 1245256, 589824, 5, 1310792, 589824, 6, 1310791, 524288, 6, 1310790, 458752, 6, 1245254, 458752, 5, 1179718, 458752, 4, 1179719, 524288, 4, 1179720, 589824, 4, 1245259, 524288, 5, 1245260, 589824, 5, 1310796, 589824, 6, 1310795, 524288, 6, 1310794, 458752, 6, 1245258, 458752, 5, 1179722, 458752, 4, 1179723, 524288, 4, 1179724, 589824, 4, 1245263, 524288, 5, 1245264, 589824, 5, 1310800, 589824, 6, 1310799, 524288, 6, 1310798, 458752, 6, 1245262, 458752, 5, 1179726, 458752, 4, 1179727, 524288, 4, 1179728, 589824, 4, 1245267, 524288, 5, 1245268, 589824, 5, 1310804, 589824, 6, 1310803, 524288, 6, 1310802, 458752, 6, 1245266, 458752, 5, 1179730, 458752, 4, 1179731, 524288, 4, 1179732, 589824, 4, 1245272, 524288, 5, 1245273, 589824, 5, 1310809, 589824, 6, 1310808, 524288, 6, 1310807, 458752, 6, 1245271, 458752, 5, 1179735, 458752, 4, 1179736, 524288, 4, 1179737, 589824, 4, 1245277, 524288, 5, 1245278, 589824, 5, 1310814, 589824, 6, 1310813, 524288, 6, 1310812, 458752, 6, 1245276, 458752, 5, 1179740, 458752, 4, 1179741, 524288, 4, 1179742, 589824, 4)
+layer_1/name = "Foreground Vegetation"
+layer_1/enabled = true
+layer_1/modulate = Color(0.788235, 1, 0.494118, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 10
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "Background Vegetation"
+layer_2/enabled = true
+layer_2/modulate = Color(0.282353, 0.176471, 0.0666667, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = -10
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Actors"
+layer_3/enabled = true
+layer_3/modulate = Color(1, 1, 1, 1)
+layer_3/y_sort_enabled = false
+layer_3/y_sort_origin = 0
+layer_3/z_index = 0
+layer_3/tile_data = PackedInt32Array()
+
+[node name="CRT" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("5_0xy1u")
+
+[node name="CRT" type="ColorRect" parent="CRT"]
+z_index = 100
+z_as_relative = false
+material = ExtResource("6_j4a03")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blur" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("5_0xy1u")
+
+[node name="Blur" type="ColorRect" parent="Blur"]
+visible = false
+z_index = 50
+z_as_relative = false
+material = ExtResource("7_w50yv")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FallLimit" parent="." instance=ExtResource("8_c8ahq")]
+position = Vector2(-704, 304)
+
+[node name="Enemies" type="Node2D" parent="."]
