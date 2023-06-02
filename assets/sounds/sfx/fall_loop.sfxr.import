@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://bfvn560x7aohf"
+path="res://.godot/imported/fall_loop.sfxr-c2e697e3a3b634280beb6a00e44a1c8b.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fall_loop.sfxr"
+dest_files=["res://.godot/imported/fall_loop.sfxr-c2e697e3a3b634280beb6a00e44a1c8b.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0
