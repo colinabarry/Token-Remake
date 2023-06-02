@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_77huk")
-shader_parameter/scan_line_count = 300.0
+shader_parameter/scan_line_count = 360.0
 shader_parameter/scan_line_mix = 1.0
 shader_parameter/r_offset = 0.0
 shader_parameter/g_offset = 1.25

@@ -5,6 +5,7 @@ class_name Player extends CharacterBody2D
 @export var jump_velocity := -250.0
 @export var gravity := 9.8
 @export var default_jump_tokens := 50000
+@export var fall_loop_sound: AudioStreamWAV
 
 # state machine variables
 var is_on_ground := false
@@ -15,11 +16,13 @@ var input_dir := 0.0
 @onready var state_machine := $StateMachine as StateMachine
 @onready var coin_purse := $CoinPurse as CoinPurse
 @onready var anim_player := $AnimationPlayer as AnimationPlayer
+@onready var ground_detector := $GroundDetector as GroundDetector
 
 @onready var sprite_origin := $SpriteOrigin as Node2D
 @onready var coyote_cast := $CoyoteCast as RayCast2D
-@onready var ground_detector := $GroundDetector as GroundDetector
 @onready var collision := $PlayerCollision as CollisionShape2D
+@onready var audio_player := $AudioStreamPlayer2D as AudioStreamPlayer2D
+@onready var level = preload("res://scenes/levels/test_bed/test_bed.tscn")
 
 
 func _ready() -> void:
@@ -30,9 +33,9 @@ func _ready() -> void:
 	coin_purse.init(self)
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("level_reset"):
-		die()
+func _input(event: InputEvent) -> void:
+	# if Input.is_action_just_pressed("level_reset"):
+	# 	die()
 	if Input.is_action_just_pressed("move_drop"):
 		if ground_detector.standing_on_platform:
 			collision.disabled = true
@@ -108,8 +111,10 @@ func fall(fall_acceleration := gravity) -> void:
 
 
 func die() -> void:
-	get_tree().change_scene_to_file("scenes/levels/test_bed.tscn")
+	get_tree().change_scene_to_packed(level)
 
 
 func _on_hit_level_limit() -> void:
+	audio_player.stream = fall_loop_sound
+	audio_player.play()
 	position = spawn_location

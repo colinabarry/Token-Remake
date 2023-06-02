@@ -1,12 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://b874xebdbapxk"]
+[gd_scene load_steps=21 format=3 uid="uid://b874xebdbapxk"]
 
 [ext_resource type="Script" path="res://scenes/actors/characters/player/player.gd" id="1_cgsb8"]
 [ext_resource type="Script" path="res://scenes/components/state_machine/state_machine.gd" id="3_c0nlg"]
 [ext_resource type="PackedScene" uid="uid://dlx60mkkcop6w" path="res://scenes/components/health_component/health_component.tscn" id="4_3151j"]
 [ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="5_iwkll"]
+[ext_resource type="AudioStream" uid="uid://ct8wki3jnswvb" path="res://assets/sounds/sfx/jump.sfxr" id="5_tqddd"]
 [ext_resource type="PackedScene" uid="uid://bsfi6t5hy01dm" path="res://scenes/components/damage_component/damage_component.tscn" id="6_exyqv"]
 [ext_resource type="PackedScene" uid="uid://dorc8jb0hh23a" path="res://scenes/components/ground_detector/ground_detector.tscn" id="6_jr3kk"]
 [ext_resource type="Script" path="res://scenes/actors/characters/player/coin_purse.gd" id="7_shcpk"]
+[ext_resource type="AudioStream" uid="uid://bfvn560x7aohf" path="res://assets/sounds/sfx/fall_loop.sfxr" id="9_x0au7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lcp50"]
 radius = 4.0
@@ -49,7 +51,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("SpriteOrigin/Sprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -76,6 +78,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [1, 2, 3, 4]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_tqddd")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_wd54a"]
 length = 0.001
@@ -142,6 +159,7 @@ size = Vector2(8, 1)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 16
 script = ExtResource("1_cgsb8")
+fall_loop_sound = ExtResource("9_x0au7")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
@@ -203,5 +221,7 @@ hit_from_inside = true
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_gdqtv")
 debug_color = Color(0.435294, 0.25098, 0, 0.419608)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="area_entered" from="GroundDetector" to="GroundDetector" method="_on_area_entered"]

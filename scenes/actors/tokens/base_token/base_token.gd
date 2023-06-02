@@ -17,6 +17,10 @@ func _ready() -> void:
 
 
 func _collect() -> void:
+	if animation_player.has_animation("pickup"):
+		animation_player.play("pickup")
+	await animation_player.animation_finished
+	print_debug("bye!")
 	queue_free()
 
 

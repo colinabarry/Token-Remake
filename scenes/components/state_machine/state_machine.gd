@@ -73,13 +73,13 @@ func input(_event: InputEvent) -> void:
 	_emit_input_signals()
 
 
-func physics_process(_delta: float) -> void:
-	pass
+func physics_process(delta: float) -> void:
+	current_state.physics_process(delta)
+	_emit_process_signals()
 
 
 func process(delta: float) -> void:
 	current_state.process(delta)
-	_emit_process_signals()
 
 
 func try_state_change(state_name: String, new_state: BaseState) -> void:

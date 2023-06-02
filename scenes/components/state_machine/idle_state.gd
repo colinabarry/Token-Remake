@@ -10,6 +10,6 @@ func enter() -> void:
 	# player.velocity.x = 0
 
 
-func process(_delta: float) -> void:
+func physics_process(_delta: float) -> void:
 	player.fall()
 	player.move()

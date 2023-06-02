@@ -5,6 +5,6 @@ func _init() -> void:
 	resource_name = "WalkState"
 
 
-func process(_delta: float) -> void:
+func physics_process(_delta: float) -> void:
 	player.move()
 	player.fall()
