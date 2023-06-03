@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmw35cxfmwttv"]
+[gd_scene load_steps=8 format=3 uid="uid://bmw35cxfmwttv"]
 
 [ext_resource type="Script" path="res://scenes/actors/spring/spring.gd" id="1_0w7it"]
 [ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="1_1ffcj"]
+[ext_resource type="AudioStream" uid="uid://dkgdv20lapilu" path="res://assets/sounds/sfx/spring.sfxr" id="3_we1g6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srt58"]
 size = Vector2(16, 8)
@@ -23,6 +24,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_ib3am"]
 resource_name = "activate"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,7 +32,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9, 1),
+"times": PackedFloat32Array(0, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [2, 1, 0]
@@ -42,7 +44,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [false],
@@ -52,6 +54,21 @@ tracks/1/keys = {
 "method": &"@can_activate_setter"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_we1g6")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hhn05"]
 _data = {
@@ -71,7 +88,6 @@ region_enabled = true
 region_rect = Rect2(48, 128, 48, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_srt58")
 
@@ -79,5 +95,7 @@ shape = SubResource("RectangleShape2D_srt58")
 libraries = {
 "": SubResource("AnimationLibrary_hhn05")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

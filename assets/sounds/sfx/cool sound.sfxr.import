@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://cg5wkfqxeusox"
+path="res://.godot/imported/cool sound.sfxr-cb4f662aeaa2984e26e2cc6b5c55f611.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/cool sound.sfxr"
+dest_files=["res://.godot/imported/cool sound.sfxr-cb4f662aeaa2984e26e2cc6b5c55f611.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0

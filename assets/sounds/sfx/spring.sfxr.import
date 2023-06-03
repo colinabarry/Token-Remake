@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://dkgdv20lapilu"
+path="res://.godot/imported/spring.sfxr-73135658cd87eb9be2d9edd394c70eaa.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/spring.sfxr"
+dest_files=["res://.godot/imported/spring.sfxr-73135658cd87eb9be2d9edd394c70eaa.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0
