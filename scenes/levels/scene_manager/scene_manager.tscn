@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckxkdibxqwbh4"]
+[gd_scene load_steps=9 format=3 uid="uid://ckxkdibxqwbh4"]
 
-[ext_resource type="PackedScene" uid="uid://blrqubucfofav" path="res://scenes/levels/level_01/level_01.tscn" id="1_2ojvn"]
 [ext_resource type="Script" path="res://scenes/levels/scene_manager/scene_manager.gd" id="1_xrtdj"]
 [ext_resource type="PackedScene" uid="uid://b874xebdbapxk" path="res://scenes/actors/characters/player/player.tscn" id="2_mnp1d"]
 [ext_resource type="Material" uid="uid://ce10223yltscx" path="res://shaders/blur/blur_material.tres" id="3_674y0"]
@@ -88,11 +87,13 @@ _data = {
 "transition": SubResource("Animation_8c053")
 }
 
-[node name="SceneManager" type="CanvasLayer" node_paths=PackedStringArray("animation_player", "player")]
+[node name="SceneManager" type="CanvasLayer" node_paths=PackedStringArray("animation_player", "player", "level_layer", "blur_layer", "crt_layer")]
 script = ExtResource("1_xrtdj")
 animation_player = NodePath("AnimationPlayer")
 player = NodePath("PlayerLayer/Player")
-post_fx_layers = Array[CanvasLayer]([null, null])
+level_layer = NodePath("LevelLayer")
+blur_layer = NodePath("BlurLayer")
+crt_layer = NodePath("CRTLayer")
 levels = PackedStringArray("res://scenes/levels/level_01/level_01.tscn", "res://scenes/levels/test_bed/test_bed.tscn")
 
 [node name="PlayerLayer" type="CanvasLayer" parent="."]
@@ -101,7 +102,7 @@ follow_viewport_enabled = true
 
 [node name="Player" parent="PlayerLayer" instance=ExtResource("2_mnp1d")]
 z_index = 10
-position = Vector2(384, 120)
+position = Vector2(746, 52)
 
 [node name="TransitionContainer" type="CenterContainer" parent="PlayerLayer/Player"]
 anchors_preset = 8
@@ -124,16 +125,6 @@ color = Color(0.160784, 0, 0.2, 1)
 [node name="LevelLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Level01" parent="LevelLayer" instance=ExtResource("1_2ojvn")]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-stretch = true
-
 [node name="BlurLayer" type="CanvasLayer" parent="."]
 layer = 10
 visible = false
@@ -141,8 +132,6 @@ script = ExtResource("3_fp0pe")
 
 [node name="Blur" type="ColorRect" parent="BlurLayer"]
 visible = false
-z_index = 50
-z_as_relative = false
 material = ExtResource("3_674y0")
 anchors_preset = 15
 anchor_right = 1.0
@@ -156,8 +145,6 @@ visible = false
 script = ExtResource("3_fp0pe")
 
 [node name="CRT" type="ColorRect" parent="CRTLayer"]
-z_index = 100
-z_as_relative = false
 material = ExtResource("3_vwdhk")
 anchors_preset = 15
 anchor_right = 1.0

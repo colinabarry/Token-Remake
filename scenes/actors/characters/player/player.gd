@@ -22,7 +22,7 @@ var input_dir := 0.0
 @onready var coyote_cast := $CoyoteCast as RayCast2D
 @onready var collision := $PlayerCollision as CollisionShape2D
 @onready var audio_player := $AudioStreamPlayer2D as AudioStreamPlayer2D
-@onready var level = preload("res://scenes/levels/test_bed/test_bed.tscn")
+@onready var level = preload("res://scenes/levels/scene_manager/scene_manager.tscn")
 
 
 func _ready() -> void:
@@ -95,7 +95,7 @@ func move(move_acceleration := walk_acceleration) -> void:
 			velocity.x + (input_dir * move_acceleration), -max_walk_speed, max_walk_speed
 		)
 	else:
-		velocity.x = lerp(velocity.x, 0.0, 0.5)
+		velocity.x = lerp(velocity.x, 0.0, 0.25)
 
 	if input_dir != 0:
 		sprite_origin.scale.x = signf(input_dir)

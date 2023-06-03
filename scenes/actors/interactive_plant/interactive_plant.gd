@@ -34,6 +34,7 @@ var valid_indices := [1, 2, 3, 4, 5, 6, 9, 10, 11, 12, 13]
 
 @onready var sprite := $Sprite2D as Sprite2D
 @onready var animation_player := $AnimationPlayer as AnimationPlayer
+@onready var audio_player := $AudioStreamPlayer2D as AudioStreamPlayer2D
 
 
 func _ready() -> void:
@@ -65,6 +66,7 @@ func _update() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	audio_player.play()
 	var body_distance := body.global_position.x - global_position.x
 
 	if abs(body_distance) <= top_drop_width:

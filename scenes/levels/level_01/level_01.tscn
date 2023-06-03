@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://blrqubucfofav"]
 
-[ext_resource type="Script" path="res://scenes/levels/test_bed/test_bed.gd" id="1_ud1j1"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_mdb50"]
 [ext_resource type="Environment" uid="uid://rpk3qeg13q8i" path="res://assets/environments/environment.tres" id="2_ofl8h"]
 [ext_resource type="TileSet" uid="uid://bkswb2jo3bdrx" path="res://assets/tilesets/level_tileset.tres" id="4_ctwqq"]
 [ext_resource type="Script" path="res://scripts/crt_layer.gd" id="5_0xy1u"]
@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://dslnouplskxdb" path="res://scenes/actors/level_limits/fall_limit.tscn" id="8_c8ahq"]
 [ext_resource type="PackedScene" uid="uid://dnmska57qgk46" path="res://scenes/actors/tokens/jump_token/jump_token.tscn" id="9_wbhxk"]
 
-[node name="Level01" type="Node2D"]
-script = ExtResource("1_ud1j1")
+[node name="Level01" type="Node"]
+script = ExtResource("1_mdb50")
+background_color = Color(0, 0, 0.34902, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("2_ofl8h")
