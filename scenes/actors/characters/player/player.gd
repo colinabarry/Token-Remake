@@ -1,5 +1,7 @@
 class_name Player extends CharacterBody2D
 
+signal died
+
 @export var max_walk_speed := 175.0
 @export var walk_acceleration := 5.0
 @export var jump_velocity := -250.0
@@ -95,7 +97,7 @@ func move(move_acceleration := walk_acceleration) -> void:
 			velocity.x + (input_dir * move_acceleration), -max_walk_speed, max_walk_speed
 		)
 	else:
-		velocity.x = lerp(velocity.x, 0.0, 0.25)
+		velocity.x = lerp(velocity.x, 0.0, 0.4)
 
 	if input_dir != 0:
 		sprite_origin.scale.x = signf(input_dir)
@@ -111,7 +113,7 @@ func fall(fall_acceleration := gravity) -> void:
 
 
 func die() -> void:
-	get_tree().change_scene_to_packed(level)
+	died.emit()
 
 
 func _on_hit_level_limit() -> void:

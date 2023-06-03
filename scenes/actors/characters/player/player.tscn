@@ -93,6 +93,30 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteOrigin/Sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 1.5), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteOrigin/Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.2, 0.8), Vector2(0.9, 1.1), Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_wd54a"]
 length = 0.001
@@ -120,6 +144,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteOrigin/Sprite:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_wssoe"]
 resource_name = "WalkState"
@@ -135,7 +171,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1, 2]
+"values": [2, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o7ndv"]
@@ -211,8 +247,8 @@ position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_rttqp")
 
 [node name="CoyoteCast" type="RayCast2D" parent="."]
-position = Vector2(-14, 8.5)
-target_position = Vector2(28, 0)
+position = Vector2(-15, 8.5)
+target_position = Vector2(30, 0)
 hit_from_inside = true
 
 [node name="GroundDetector" parent="." instance=ExtResource("6_jr3kk")]
@@ -223,5 +259,6 @@ shape = SubResource("RectangleShape2D_gdqtv")
 debug_color = Color(0.435294, 0.25098, 0, 0.419608)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+area_mask = 17
 
 [connection signal="area_entered" from="GroundDetector" to="GroundDetector" method="_on_area_entered"]
