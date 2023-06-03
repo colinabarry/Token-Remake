@@ -1,0 +1,171 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckxkdibxqwbh4"]
+
+[ext_resource type="PackedScene" uid="uid://blrqubucfofav" path="res://scenes/levels/level_01/level_01.tscn" id="1_2ojvn"]
+[ext_resource type="Script" path="res://scenes/levels/scene_manager/scene_manager.gd" id="1_xrtdj"]
+[ext_resource type="PackedScene" uid="uid://b874xebdbapxk" path="res://scenes/actors/characters/player/player.tscn" id="2_mnp1d"]
+[ext_resource type="Material" uid="uid://ce10223yltscx" path="res://shaders/blur/blur_material.tres" id="3_674y0"]
+[ext_resource type="Script" path="res://scripts/crt_layer.gd" id="3_fp0pe"]
+[ext_resource type="Material" uid="uid://bvwhh6d4lrqtd" path="res://shaders/crt_simple/crt_simple_material.tres" id="3_vwdhk"]
+
+[sub_resource type="Animation" id="Animation_r8i88"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerLayer/Player/TransitionContainer/TransitionRect:custom_minimum_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerLayer/Player/TransitionContainer/TransitionRect:custom_minimum_size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerLayer/Player/TransitionContainer/TransitionRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8c053"]
+resource_name = "transition"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerLayer/Player/TransitionContainer/TransitionRect:custom_minimum_size:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.1, 200, 601, -0.286722, -7, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerLayer/Player/TransitionContainer/TransitionRect:custom_minimum_size:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, 178, 351, -0.286722, -4, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerLayer/Player/TransitionContainer/TransitionRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i42cm"]
+_data = {
+"RESET": SubResource("Animation_r8i88"),
+"transition": SubResource("Animation_8c053")
+}
+
+[node name="SceneManager" type="CanvasLayer" node_paths=PackedStringArray("animation_player", "player")]
+script = ExtResource("1_xrtdj")
+animation_player = NodePath("AnimationPlayer")
+player = NodePath("PlayerLayer/Player")
+post_fx_layers = Array[CanvasLayer]([null, null])
+levels = PackedStringArray("res://scenes/levels/level_01/level_01.tscn", "res://scenes/levels/test_bed/test_bed.tscn")
+
+[node name="PlayerLayer" type="CanvasLayer" parent="."]
+layer = 5
+follow_viewport_enabled = true
+
+[node name="Player" parent="PlayerLayer" instance=ExtResource("2_mnp1d")]
+z_index = 10
+position = Vector2(384, 120)
+
+[node name="TransitionContainer" type="CenterContainer" parent="PlayerLayer/Player"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -266.5
+offset_top = -150.0
+offset_right = 266.5
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TransitionRect" type="ColorRect" parent="PlayerLayer/Player/TransitionContainer"]
+z_index = -10
+layout_mode = 2
+color = Color(0.160784, 0, 0.2, 1)
+
+[node name="LevelLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Level01" parent="LevelLayer" instance=ExtResource("1_2ojvn")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="BlurLayer" type="CanvasLayer" parent="."]
+layer = 10
+visible = false
+script = ExtResource("3_fp0pe")
+
+[node name="Blur" type="ColorRect" parent="BlurLayer"]
+visible = false
+z_index = 50
+z_as_relative = false
+material = ExtResource("3_674y0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CRTLayer" type="CanvasLayer" parent="."]
+layer = 20
+visible = false
+script = ExtResource("3_fp0pe")
+
+[node name="CRT" type="ColorRect" parent="CRTLayer"]
+z_index = 100
+z_as_relative = false
+material = ExtResource("3_vwdhk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i42cm")
+}

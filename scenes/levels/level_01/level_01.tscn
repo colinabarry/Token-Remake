@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://blrqubucfofav"]
+[gd_scene load_steps=9 format=3 uid="uid://blrqubucfofav"]
 
 [ext_resource type="Script" path="res://scenes/levels/test_bed/test_bed.gd" id="1_ud1j1"]
 [ext_resource type="Environment" uid="uid://rpk3qeg13q8i" path="res://assets/environments/environment.tres" id="2_ofl8h"]
-[ext_resource type="PackedScene" uid="uid://b874xebdbapxk" path="res://scenes/actors/characters/player/player.tscn" id="3_o6sop"]
 [ext_resource type="TileSet" uid="uid://bkswb2jo3bdrx" path="res://assets/tilesets/level_tileset.tres" id="4_ctwqq"]
 [ext_resource type="Script" path="res://scripts/crt_layer.gd" id="5_0xy1u"]
 [ext_resource type="Material" uid="uid://bvwhh6d4lrqtd" path="res://shaders/crt_simple/crt_simple_material.tres" id="6_j4a03"]
@@ -24,9 +23,6 @@ offset_top = -1800.0
 offset_right = 3285.0
 offset_bottom = 2325.0
 color = Color(0.00392157, 0, 0.337255, 1)
-
-[node name="Player" parent="." instance=ExtResource("3_o6sop")]
-position = Vector2(391, 136)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 3
