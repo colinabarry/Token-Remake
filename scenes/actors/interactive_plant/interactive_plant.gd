@@ -66,7 +66,6 @@ func _update() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	audio_player.play()
 	var body_distance := body.global_position.x - global_position.x
 
 	if abs(body_distance) <= top_drop_width:
