@@ -3,6 +3,12 @@ extends Area2D
 var is_pushing := false
 var characters: Dictionary
 
+@onready var animation_player := $AnimationPlayer as AnimationPlayer
+
+
+func _ready() -> void:
+	animation_player.play("on")
+
 
 func _process(delta: float) -> void:
 	if not is_pushing:
@@ -32,5 +38,5 @@ func _on_body_exited(body: Node2D) -> void:
 	# player = body as Player
 	# if not player:
 	# 	return
-
-	is_pushing = false
+	if characters.size() == 0:
+		is_pushing = false
