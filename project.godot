@@ -19,10 +19,7 @@ config/icon="res://icon.svg"
 
 States="*res://scripts/autoloads/states.gd"
 Global="*res://scripts/autoloads/global.gd"
-
-[debug]
-
-settings/stdout/print_fps=true
+Palette="*res://scripts/autoloads/palette.gd"
 
 [display]
 

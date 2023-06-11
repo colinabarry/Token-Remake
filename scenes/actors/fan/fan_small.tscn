@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/actors/fan/fan_small.gd" id="1_ullss"]
 [ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="2_bui6n"]
-[ext_resource type="AudioStream" uid="uid://cd2cv1yfujgfy" path="res://fan.sfxr" id="3_x8gpi"]
+[ext_resource type="AudioStream" uid="uid://cd2cv1yfujgfy" path="res://assets/sounds/sfx/fan.sfxr" id="3_2a6lu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qm317"]
 size = Vector2(16, 128)
@@ -48,7 +48,7 @@ tracks/1/keys = {
 "clips": [{
 "end_offset": 2.51396,
 "start_offset": 0.0,
-"stream": ExtResource("3_x8gpi")
+"stream": ExtResource("3_2a6lu")
 }],
 "times": PackedFloat32Array(0)
 }

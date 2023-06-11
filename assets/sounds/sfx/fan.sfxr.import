@@ -1,0 +1,17 @@
+[remap]
+
+importer="com.timothyqiu.gdfxr.importer"
+type="AudioStreamWAV"
+uid="uid://cd2cv1yfujgfy"
+path="res://.godot/imported/fan.sfxr-d9136f5d1d1bea19e31ccd9870865b36.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/fan.sfxr"
+dest_files=["res://.godot/imported/fan.sfxr-d9136f5d1d1bea19e31ccd9870865b36.sample"]
+
+[params]
+
+loop=false
+bit_depth=0
+sample_rate=0
