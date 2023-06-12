@@ -1,4 +1,4 @@
-@tool
+# @tool
 extends Node
 
 var default_source: Texture2D = preload("res://assets/textures/duel-1x.png")

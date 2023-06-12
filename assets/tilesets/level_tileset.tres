@@ -3,7 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://3bqcg0nawi5k" path="res://assets/textures/monochrome_tilemap_transparent_packed.png" id="1_jaaes"]
 [ext_resource type="PackedScene" uid="uid://b22bcngmpyqp2" path="res://scenes/actors/interactive_plant/interactive_plant.tscn" id="2_nxxv0"]
 [ext_resource type="PackedScene" uid="uid://dopthuydy85m1" path="res://scenes/actors/fan/fan_small.tscn" id="3_o4tr7"]
+[ext_resource type="PackedScene" uid="uid://bbnautmoemh7o" path="res://scenes/actors/spike/spike.tscn" id="4_adr81"]
 [ext_resource type="PackedScene" uid="uid://bmw35cxfmwttv" path="res://scenes/actors/spring/spring.tscn" id="4_bi0if"]
+[ext_resource type="PackedScene" uid="uid://dnmska57qgk46" path="res://scenes/actors/tokens/jump_token/jump_token.tscn" id="5_oiixa"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_tuu6j"]
 tile_data = PackedInt32Array(0, 917504, 0, 65536, 917504, 1)
@@ -18,6 +20,7 @@ tile_data = PackedInt32Array(0, 917504, 0, 65536, 983040, 1)
 tile_data = PackedInt32Array(0, 983040, 0, 65536, 983040, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jxx6g"]
+resource_name = "non-interactive"
 texture = ExtResource("1_jaaes")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -709,16 +712,12 @@ texture = ExtResource("1_jaaes")
 9:13/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_515f6"]
-resource_name = "plants"
+resource_name = "actors"
 scenes/1/scene = ExtResource("2_nxxv0")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fd7aa"]
-resource_name = "fan_small"
-scenes/1/scene = ExtResource("3_o4tr7")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_yix58"]
-resource_name = "spring"
-scenes/1/scene = ExtResource("4_bi0if")
+scenes/2/scene = ExtResource("3_o4tr7")
+scenes/3/scene = ExtResource("4_adr81")
+scenes/4/scene = ExtResource("5_oiixa")
+scenes/5/scene = ExtResource("4_bi0if")
 
 [resource]
 physics_layer_0/collision_layer = 1
@@ -731,8 +730,6 @@ custom_data_layer_0/name = "is_platform"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_jxx6g")
 sources/1 = SubResource("TileSetScenesCollectionSource_515f6")
-sources/2 = SubResource("TileSetScenesCollectionSource_fd7aa")
-sources/3 = SubResource("TileSetScenesCollectionSource_yix58")
 pattern_0 = SubResource("TileMapPattern_tuu6j")
 pattern_1 = SubResource("TileMapPattern_urmog")
 pattern_2 = SubResource("TileMapPattern_g4uw0")

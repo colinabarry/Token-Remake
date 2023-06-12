@@ -11,5 +11,5 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	if body.has_method("move_and_slide"):
-		body.velocity.y = -250
+		body.velocity.y = -325
 		$AnimationPlayer.play("activate")

@@ -104,6 +104,7 @@ follow_viewport_enabled = true
 z_index = 10
 position = Vector2(837, -287)
 max_walk_speed = 190.0
+default_jump_tokens = 0
 
 [node name="TransitionContainer" type="CenterContainer" parent="PlayerLayer/Player"]
 anchors_preset = 8

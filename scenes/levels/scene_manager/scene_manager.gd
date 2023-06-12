@@ -21,10 +21,11 @@ func _ready() -> void:
 	if levels.size() == 0:
 		return
 
-	if ResourceLoader.exists(levels[1]):
-		current_level = load(levels[1]).instantiate()
+	if ResourceLoader.exists(levels[0]):
+		current_level = load(levels[0]).instantiate()
 
 	level_layer.add_child(current_level)
+	current_level.owner = get_tree().get_edited_scene_root()
 
 	# texture writing test
 	palette = Palette.calculate_palette()
@@ -58,6 +59,7 @@ func _change_scene(to_level_index: int) -> void:
 	current_level.call_deferred("queue_free")
 	current_level = new_level
 	level_layer.add_child(current_level)
+	current_level.owner = get_tree().get_edited_scene_root()
 
 
 func _on_player_died() -> void:
